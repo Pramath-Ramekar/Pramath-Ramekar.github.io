@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+_qa*.py
+_qa*.js
+_extracted.js
