@@ -246,6 +246,17 @@ section{position:relative;z-index:1}
 .cap-k{display:flex;flex-wrap:wrap;gap:.35rem}
 .cap-k span{font-family:var(--font-m);font-size:.62rem;color:var(--faint);border:1px solid var(--line-soft);padding:.18rem .42rem;border-radius:3px}
 
+
+/* method strip */
+.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:1.4rem}
+.meth-i{background:var(--bg);padding:1.1rem 1.1rem;position:relative}
+.meth-i::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--violet);opacity:.28}
+.meth-i:hover::before{opacity:1}
+.meth-n{font-family:var(--font-m);font-size:.6rem;letter-spacing:.15em;color:var(--violet);margin-bottom:.4rem}
+.meth-t{font-family:var(--font-d);font-size:.94rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.25rem}
+.meth-d{font-size:.78rem;color:var(--muted);line-height:1.55}
+
 /* ---------- field notes ---------- */
 .notes{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .note{background:var(--bg);padding:1.5rem 1.4rem;display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:start;transition:background .3s var(--ease)}
@@ -461,10 +472,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <nav class="mast-right" aria-label="Primary">
       <a class="mn hidden-sm" href="#dossier">01 DOSSIER</a>
       <a class="mn hidden-sm" href="#capabilities">02 CAPABILITIES</a>
-      <a class="mn hidden-sm" href="#notes">03 FIELD NOTES</a>
-      <a class="mn hidden-sm" href="#projects">04 WORK</a>
-      <a class="mn hidden-sm" href="#journey">05 JOURNEY</a>
-      <a class="mn hidden-sm" href="#certs">06 CREDENTIALS</a>
+      <a class="mn hidden-sm" href="#projects">03 WORK</a>
+      <a class="mn hidden-sm" href="#journey">04 JOURNEY</a>
+      <a class="mn hidden-sm" href="#certs">05 CREDENTIALS</a>
       <button class="mn" id="kbOpen" aria-haspopup="dialog" aria-controls="kb">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
         <span class="mn-kbd" id="kbKey">CTRL K</span>
@@ -487,7 +497,6 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <span>AI, CLOUD &amp; <b>SECURITY</b> EDITION</span>
       <span class="hero-ed-r">
         <span>B.TECH AI &amp; ML — <b>2028</b></span>
-        <span><b>2ND</b> YEAR / 4TH SEM</span>
         <span>IST · <b>UTC+05:30</b></span>
       </span>
     </div>
@@ -499,8 +508,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <span>Agentic AI Security Researcher</span>
     </div>
     <p class="h-tag">
-      I break <em>agentic AI systems</em> before someone else does — then build the detection logic
-      that catches them. <em>3,000+ hours</em> of independent research across HackerOne and Bugcrowd.
+      I break <em>agentic AI systems</em> to find where trust breaks — then rebuild them.
+      <em>3,000+ hours</em> of independent research across HackerOne and Bugcrowd.
     </p>
     <div class="h-cta">
       <a class="btn btn-p" href="#projects">
@@ -524,8 +533,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="stat-l">OWASP LLM<br>Top 10 coverage</div>
       </div>
       <div class="stat">
-        <div class="stat-n"><span data-count="1">0</span></div>
-        <div class="stat-l">Adobe Express<br>AI filter bypass</div>
+        <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
+        <div class="stat-l">OWASP API<br>Top 10 coverage</div>
       </div>
       <div class="stat">
         <div class="stat-n"><span data-count="6">0</span></div>
@@ -556,23 +565,21 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <div class="dossier">
       <div class="rv">
         <p class="dos-p">
-          I'm a <strong>cybersecurity specialist and AI/ML engineer</strong> across agentic AI security,
+          <strong>Cybersecurity specialist and AI/ML engineer</strong> across agentic AI security,
           VAPT/WAPT and DevSecOps. At <span class="hl">Arica Tech Security LLP</span> I run SOC
-          operations and internal pentesting — I deployed the company's Wazuh SIEM from zero and
-          authored the AI SOC Handbook behind it.
+          operations and internal pentesting, and deployed the company's Wazuh SIEM from zero.
         </p>
         <p class="dos-p">
           Alongside that, <span class="hl">3,000+ hours of independent research</span> on HackerOne and
-          Bugcrowd. The work that matters most sits in the AI/agentic layer: an agent
-          <strong>authentication bypass</strong> against production infrastructure, a
-          <strong>system prompt leak</strong> exposing a full tool schema, and an
-          <strong>Adobe Express content filter bypass</strong> found live at NullCon Goa 2026 and
-          reviewed by Adobe's security team.
+          Bugcrowd — an agent <strong>authentication bypass</strong> against production infrastructure,
+          a <strong>system prompt leak</strong> exposing a full tool schema, and an
+          <strong>Adobe Express content filter bypass</strong> found at NullCon Goa 2026 and reviewed
+          by Adobe's security team.
         </p>
         <p class="dos-p">
-          Second-year B.Tech student in AI &amp; Machine Learning at Modern College of Engineering,
-          Pune, pursuing <span class="hl">OffSec AI Red Teamer</span> and <span class="hl">HTB COAE</span>.
-          Autonomy is something an agent earns through evidence — never something it's granted.
+          Second-year B.Tech student in AI &amp; ML, Pune, pursuing <span class="hl">OffSec AI Red
+          Teamer</span> and <span class="hl">HTB COAE</span>. Autonomy is something an agent earns
+          through evidence — never something it's granted.
         </p>
       </div>
 
@@ -652,142 +659,59 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     </div>
   </div>
 </section><!-- ============ 03 FIELD NOTES ============ -->
-<section class="sec" id="notes">
-  <div class="wrap">
-    <div class="sh rv">
-      <span class="sh-n">[03]</span>
-      <h2 class="sh-t">Field Notes</h2>
-      <span class="sh-s">Disclosed findings</span>
-    </div>
-
-    <div class="notes rv">
-      <article class="note">
-        <div>
-          <div class="note-h">
-            <span class="sev sev-h">High</span>
-            <span class="note-cat">AI Model Filter Bypass · Adobe Express</span>
-          </div>
-          <h3 class="note-t">Content filter bypass in Adobe Express</h3>
-          <p class="note-b">
-            Discovered an <em>AI content filter bypass</em> in Adobe Express during live research at
-            <em>NullCon Goa 2026</em>. Responsibly disclosed via HackerOne and reviewed by Adobe's security team.
-          </p>
-        </div>
-        <span class="note-x">Disclosed ↗</span>
-      </article>
-
-      <article class="note">
-        <div>
-          <div class="note-h">
-            <span class="sev sev-h">Critical</span>
-            <span class="note-cat">Broken Authentication · Agentic AI</span>
-          </div>
-          <h3 class="note-t">AI agent authentication bypass</h3>
-          <p class="note-b">
-            Identified broken authentication in <em>production AI agent infrastructure</em>, enabling
-            unauthorized access to the underlying foundation model. Independently triaged by the vendor
-            as a duplicate of an internally tracked critical issue.
-          </p>
-        </div>
-        <span class="note-x">Accepted ↗</span>
-      </article>
-
-      <article class="note">
-        <div>
-          <div class="note-h">
-            <span class="sev sev-h">High</span>
-            <span class="note-cat">System Prompt Leakage · Excessive Agency</span>
-          </div>
-          <h3 class="note-t">Full system prompt and tool schema extracted</h3>
-          <p class="note-b">
-            Extracted a production AI agent's <em>full system prompt and internal tool/function schema</em>
-            through an unauthenticated real-time channel — demonstrating excessive agency and unbounded
-            model invocation risk. Maps to <em>OWASP LLM06 / LLM07</em>.
-          </p>
-        </div>
-        <span class="note-x">Researched</span>
-      </article>
-
-      <article class="note">
-        <div>
-          <div class="note-h">
-            <span class="sev sev-m">Medium</span>
-            <span class="note-cat">IDOR · Multi-tenant</span>
-          </div>
-          <h3 class="note-t">Cross-tenant IDOR exposing customer SSO config</h3>
-          <p class="note-b">
-            Discovered and reported an insecure direct object reference on an enterprise SaaS platform,
-            exposing customer SSO configuration <em>across tenants</em>. Triaged and accepted by the
-            vendor's security team via Bugcrowd.
-          </p>
-        </div>
-        <span class="note-x">Accepted ↗</span>
-      </article>
-
-      <article class="note">
-        <div>
-          <div class="note-h">
-            <span class="sev sev-l">Internal</span>
-            <span class="note-cat">Internal VAPT</span>
-          </div>
-          <h3 class="note-t">Internal application findings</h3>
-          <p class="note-b">
-            PII exposure, a cryptographic encoding vulnerability and an account takeover, found during
-            VAPT on internal applications and infrastructure at Arica Tech.
-          </p>
-        </div>
-        <span class="note-x">Remediated</span>
-      </article>
-    </div>
-
-    <p class="lede dim rv" style="margin-top:1.4rem;font-size:.82rem">
-      Standards coverage — OWASP Top 10 (2021) <span class="hl">7/10</span> · OWASP API Security Top 10 (2023)
-      <span class="hl">4/10</span> · OWASP Top 10 for LLM Applications (2025) <span class="hl">4/10</span>
-      — including LLM01 Prompt Injection, LLM06 Excessive Agency, LLM07 System Prompt Leakage, LLM10 Unbounded Consumption.
-    </p>
-  </div>
-</section>
-
 <!-- ============ 04 WORK ============ -->
 <section class="sec" id="projects">
   <div class="wrap">
     <div class="sh rv">
-      <span class="sh-n">[04]</span>
-      <h2 class="sh-t">Selected Work</h2>
-      <span class="sh-s">Click to expand</span>
+      <span class="sh-n">[03]</span>
+      <h2 class="sh-t">AI Security Labs</h2>
+      <span class="sh-s">Four labs · attack then harden</span>
+    </div>
+
+
+    <div class="meth rv">
+      <div class="meth-i">
+        <div class="meth-n">01 / ATTACK</div>
+        <div class="meth-t">Find the break</div>
+        <div class="meth-d">Jailbreaks, injection and exfiltration against a live baseline.</div>
+      </div>
+      <div class="meth-i">
+        <div class="meth-n">02 / MEASURE</div>
+        <div class="meth-t">Prove the control fails</div>
+        <div class="meth-d">Reproduce the smallest path that shows the limit is real.</div>
+      </div>
+      <div class="meth-i">
+        <div class="meth-n">03 / HARDEN</div>
+        <div class="meth-t">Rebuild it</div>
+        <div class="meth-d">Policy engine, approval gate, 6-layer RAG defence, detection rules.</div>
+      </div>
+      <div class="meth-i">
+        <div class="meth-n">04 / VERIFY</div>
+        <div class="meth-t">Re-run and show the delta</div>
+        <div class="meth-d">Same attack matrix, measured before and after. Numbers, not claims.</div>
+      </div>
     </div>
 
     <div class="projs">
-
       <article class="proj rv open">
         <div class="proj-h" data-toggle>
           <span class="proj-id">01</span>
-          <span class="proj-name">AI Security Projects</span>
+          <span class="proj-name">AI Red Teaming Lab</span>
           <span class="proj-st live">● Live</span>
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            AI security labs, each covering one threat surface: attack a vulnerable baseline, then
-            harden it and <strong>measure the difference</strong>. An automated red-team pipeline
-            (PyRIT + Promptfoo) runs its attack matrix on every push; a RAG comparison pairs a
-            6-layer defence stack against a broken version; an autonomous agent is broken and rebuilt
-            behind a policy engine and approval gate; an AI SOC pipeline detects agent misuse live.
-          </p>
+          <p class="proj-desc">Automated red-team pipeline against a live LLM application. Jailbreaks, prompt injections and goal hijacking run as an attack matrix in CI on every push, with evidence collected automatically per run.</p>
           <div class="kv">
-            <div class="kv-i"><div class="kv-k">Agent hardening</div><div class="kv-v"><span class="g">100%</span> pass · 13 attacks</div></div>
-            <div class="kv-i"><div class="kv-k">Dangerous executions</div><div class="kv-v">2 → <span class="g">0</span></div></div>
-            <div class="kv-i"><div class="kv-k">Telemetry captured</div><div class="kv-v"><span class="g">57</span> events · 7 attacks</div></div>
-            <div class="kv-i"><div class="kv-k">Stack</div><div class="kv-v">Python · FastAPI · ChromaDB</div></div>
-            <div class="kv-i"><div class="kv-k">Frameworks</div><div class="kv-v">PyRIT · Promptfoo · OTel</div></div>
-            <div class="kv-i"><div class="kv-k">Coverage</div><div class="kv-v">LLM01 · LLM02 · LLM06</div></div>
+            <div class="kv-i"><div class="kv-k">Framework</div><div class="kv-v">PyRIT · Promptfoo</div></div>
+            <div class="kv-i"><div class="kv-k">Attacks</div><div class="kv-v">Jailbreak · Injection</div></div>
+            <div class="kv-i"><div class="kv-k">Trigger</div><div class="kv-v">CI on every push</div></div>
+            <div class="kv-i"><div class="kv-k">Evidence</div><div class="kv-v">Auto-collected</div></div>
           </div>
           <div class="proj-foot">
-            <span class="tag">Python</span><span class="tag">LLM Red Teaming</span><span class="tag">FastAPI</span><span class="tag">ChromaDB</span><span class="tag">GitHub Actions</span>
-            <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v8H3V6h8"/></svg>
-              Repository
-            </a>
+            <span class="tag">Python</span>
+            <span class="tag">LLM Red Teaming</span>
+            <span class="tag">GitHub Actions</span>
             <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
               Disclose
@@ -799,29 +723,26 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <article class="proj rv">
         <div class="proj-h" data-toggle>
           <span class="proj-id">02</span>
-          <span class="proj-name">ParamMitra</span>
+          <span class="proj-name">Secure RAG Application</span>
           <span class="proj-st live">● Live</span>
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            Parallelised parameter discovery for bug bounty hunters. Wraps ParamSpider, Paraminer,
-            Waybackurls, LinkFinder, JSParser and Arjun, normalises output through X8 and qsreplace
-            with <strong>exact URL deduplication</strong> — killing the manual enumeration loop and
-            handing back <strong>IDOR-ready</strong> parameters instead of raw noise.
-          </p>
+          <p class="proj-desc">Vulnerable-vs-secure comparison of an enterprise RAG system. Attacks cover context extraction, data exfiltration, direct and indirect injection and embedding weakness; defence is a 6-layer stack of RBAC, I/O filtering and retrieval guardrails.</p>
           <div class="kv">
-            <div class="kv-i"><div class="kv-k">Pipeline</div><div class="kv-v">Parallel execution</div></div>
-            <div class="kv-i"><div class="kv-k">Discovery</div><div class="kv-v">Arjun · ParamSpider</div></div>
-            <div class="kv-i"><div class="kv-k">Sources</div><div class="kv-v">Wayback · JS analysis</div></div>
-            <div class="kv-i"><div class="kv-k">Output</div><div class="kv-v"><span class="g">IDOR-ready</span> dedup</div></div>
-            <div class="kv-i"><div class="kv-k">Language</div><div class="kv-v">Shell</div></div>
+            <div class="kv-i"><div class="kv-k">Defence layers</div><div class="kv-v">6</div></div>
+            <div class="kv-i"><div class="kv-k">Evaluation</div><div class="kv-v">Automated detection rate</div></div>
+            <div class="kv-i"><div class="kv-k">Targets</div><div class="kv-v">Injection · Exfil</div></div>
+            <div class="kv-i"><div class="kv-k">Store</div><div class="kv-v">ChromaDB</div></div>
           </div>
           <div class="proj-foot">
-            <span class="tag">Shell</span><span class="tag">Automation</span><span class="tag">Recon</span><span class="tag">Bug Bounty</span>
-            <a class="lnk" href="https://github.com/Pramath-Ramekar/ParamMitra" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v8H3V6h8"/></svg>
-              Repository
+            <span class="tag">RAG</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">Guardrails</span>
+            <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              Disclose
             </a>
           </div>
         </div></div></div>
@@ -830,25 +751,26 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <article class="proj rv">
         <div class="proj-h" data-toggle>
           <span class="proj-id">03</span>
-          <span class="proj-name">GitHub &amp; CI/CD Security Audit Framework</span>
-          <span class="proj-st dev">◐ Method</span>
+          <span class="proj-name">Secure AI Agent</span>
+          <span class="proj-st live">● Hardened</span>
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            A repeatable audit methodology for GitHub org security and CI/CD hardening: repository
-            access reviews, branch protection, secret scanning, GitHub App and OAuth App permissions,
-            dependency scanning, and CI credential handling across <strong>Jenkins, GitHub Actions
-            and GitLab CI</strong>.
-          </p>
+          <p class="proj-desc">Break-and-rebuild lab on a tool-using autonomous agent, covering OWASP LLM01, LLM06 and LLM07. A policy engine, action monitor, approval gate, audit logger and tool registry take the vulnerable agent from two dangerous tool executions to none.</p>
           <div class="kv">
-            <div class="kv-i"><div class="kv-k">Scope</div><div class="kv-v">Org → pipeline</div></div>
-            <div class="kv-i"><div class="kv-k">Scans</div><div class="kv-v">Secrets · deps · perms</div></div>
-            <div class="kv-i"><div class="kv-k">Platforms</div><div class="kv-v">Jenkins · Actions · GitLab</div></div>
-            <div class="kv-i"><div class="kv-k">Year</div><div class="kv-v">2026</div></div>
+            <div class="kv-i"><div class="kv-k">Dangerous execs</div><div class="kv-v">2 → <span class="g">0</span></div></div>
+            <div class="kv-i"><div class="kv-k">Pass rate</div><div class="kv-v"><span class="g">100%</span> · 13 attacks</div></div>
+            <div class="kv-i"><div class="kv-k">Covers</div><div class="kv-v">LLM01 · LLM06 · LLM07</div></div>
+            <div class="kv-i"><div class="kv-k">Controls</div><div class="kv-v">Policy · Approval gate</div></div>
           </div>
           <div class="proj-foot">
-            <span class="tag">DevSecOps</span><span class="tag">Methodology</span><span class="tag">GitHub</span><span class="tag">CI/CD</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">LLM06</span>
+            <span class="tag">Tool Schema</span>
+            <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              Disclose
+            </a>
           </div>
         </div></div></div>
       </article>
@@ -856,72 +778,29 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <article class="proj rv">
         <div class="proj-h" data-toggle>
           <span class="proj-id">04</span>
-          <span class="proj-name">SaaS Product Development</span>
-          <span class="proj-st dev">◐ Ongoing</span>
-          <span class="proj-cv">+</span>
-        </div>
-        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            Contributed to the development of a SaaS product, shipping AI-assisted engineering work
-            alongside the security track. LLM tooling is wired into the build pipeline rather than
-            bolted on — practical AI engineering applied to a real product.
-          </p>
-          <div class="kv">
-            <div class="kv-i"><div class="kv-k">Role</div><div class="kv-v">Contributor</div></div>
-            <div class="kv-i"><div class="kv-k">Focus</div><div class="kv-v">SaaS development</div></div>
-            <div class="kv-i"><div class="kv-k">Method</div><div class="kv-v">AI-assisted dev</div></div>
-            <div class="kv-i"><div class="kv-k">Status</div><div class="kv-v">2026 — present</div></div>
-          </div>
-          <div class="proj-foot"><span class="tag">LLM Integration</span><span class="tag">SaaS</span><span class="tag">AI Engineering</span></div>
-        </div></div></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-h" data-toggle>
-          <span class="proj-id">05</span>
-          <span class="proj-name">AiSOC · Wazuh SIEM Deployment</span>
-          <span class="proj-st live">● Shipped</span>
-          <span class="proj-cv">+</span>
-        </div>
-        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            <strong>Built from zero.</strong> A Wazuh SIEM network deployed across the entire Arica team,
-            giving end-to-end threat visibility with no prior infrastructure — plus the
-            <strong>AI SOC Handbook</strong> with detection logic and analyst runbooks.
-          </p>
-          <div class="kv">
-            <div class="kv-i"><div class="kv-k">Deployed</div><div class="kv-v">Org-wide, from zero</div></div>
-            <div class="kv-i"><div class="kv-k">Coverage</div><div class="kv-v">End-to-end visibility</div></div>
-            <div class="kv-i"><div class="kv-k">Deliverable</div><div class="kv-v">AI SOC Handbook</div></div>
-            <div class="kv-i"><div class="kv-k">Scope</div><div class="kv-v">Detection · runbooks</div></div>
-          </div>
-          <div class="proj-foot"><span class="tag">Wazuh</span><span class="tag">SIEM</span><span class="tag">SOC</span><span class="tag">Detection Engineering</span></div>
-        </div></div></div>
-      </article>
-
-      <article class="proj rv">
-        <div class="proj-h" data-toggle>
-          <span class="proj-id">06</span>
-          <span class="proj-name">arica-ai-landing-page</span>
+          <span class="proj-name">AI Security Monitoring</span>
           <span class="proj-st live">● Live</span>
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <p class="proj-desc">
-            Front-end build for Arica's AI security product positioning — a clean, fast JavaScript landing
-            page. Small in scope, but it is the public face of the AI security work, so it gets the same
-            care as the labs behind it.
-          </p>
+          <p class="proj-desc">AI SOC pipeline detecting misuse and suspicious activity across AI systems in real time. A telemetry collector, detection rules engine, alert manager and dashboard run live attacks against the hardened agent from lab 03.</p>
+          <div class="kv">
+            <div class="kv-i"><div class="kv-k">Attacks run</div><div class="kv-v">7 live</div></div>
+            <div class="kv-i"><div class="kv-k">Telemetry</div><div class="kv-v"><span class="g">57</span> events captured</div></div>
+            <div class="kv-i"><div class="kv-k">Covers</div><div class="kv-v">LLM01 · LLM02 · LLM06</div></div>
+            <div class="kv-i"><div class="kv-k">Stack</div><div class="kv-v">OpenTelemetry</div></div>
+          </div>
           <div class="proj-foot">
-            <span class="tag">JavaScript</span><span class="tag">Front-end</span>
-            <a class="lnk" href="https://github.com/Pramath-Ramekar/arica-ai-landing-page" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v8H3V6h8"/></svg>
-              Repository
+            <span class="tag">Detection</span>
+            <span class="tag">SOC</span>
+            <span class="tag">OpenTelemetry</span>
+            <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              Disclose
             </a>
           </div>
         </div></div></div>
       </article>
-
     </div>
   </div>
 </section>
@@ -930,7 +809,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 <section class="sec" id="journey">
   <div class="wrap">
     <div class="sh rv">
-      <span class="sh-n">[05]</span>
+      <span class="sh-n">[04]</span>
       <h2 class="sh-t">Journey</h2>
       <span class="sh-s">How I got here</span>
     </div>
@@ -940,8 +819,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="jr-y">2024</div>
         <h3 class="jr-t">Foundations</h3>
         <div class="jr-o">Modern College of Engineering, Pune — B.Tech AI &amp; ML</div>
-        <p class="jr-b">Started the degree in Artificial Intelligence and Machine Learning, and started pulling
-        toward the security side of it — how systems break, and what it takes to make them hold.</p>
+        <p class="jr-b">Started in AI &amp; ML and pulled toward security — how systems break, and what it
+        takes to make them hold.</p>
       </div>
       <div class="jr-i">
         <div class="jr-y">2025</div>
@@ -954,9 +833,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="jr-y">Dec 2025</div>
         <h3 class="jr-t">Security Research Intern</h3>
         <div class="jr-o">Arica Tech Security LLP</div>
-        <p class="jr-b">Conducted security research on internal products, identifying attack surfaces and
-        documenting findings for the development team. Moved into product development and penetration
-        testing after the research phase made the case.</p>
+        <p class="jr-b">Researched internal products, mapped attack surfaces and documented findings for the
+        dev team — then moved into pentesting.</p>
       </div>
       <div class="jr-i">
         <div class="jr-y">2026</div>
@@ -971,9 +849,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="jr-y">2026</div>
         <h3 class="jr-t">AI Security, In Depth</h3>
         <div class="jr-o">CLLMSE · CLLMSP · NullCon Goa 2026</div>
-        <p class="jr-b">Certified LLM Security Expert and Professional from Red Team Leaders. Discovered and
-        disclosed the Adobe Express AI content filter bypass live at NullCon Goa 2026. Now pursuing OffSec
-        AI Red Teamer (OSAI) and HTB COAE in parallel.</p>
+        <p class="jr-b">CLLMSE and CLLMSP from Red Team Leaders. Disclosed the Adobe Express AI filter bypass
+        at NullCon Goa 2026. Now pursuing OSAI and HTB COAE.</p>
       </div>
     </div>
   </div>
@@ -983,7 +860,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 <section class="sec" id="certs">
   <div class="wrap">
     <div class="sh rv">
-      <span class="sh-n">[06]</span>
+      <span class="sh-n">[05]</span>
       <h2 class="sh-t">Credentials</h2>
       <span class="sh-s">Verified &amp; in progress</span>
     </div>
@@ -1021,7 +898,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 <section class="sec" id="contact">
   <div class="wrap">
     <div class="sh rv">
-      <span class="sh-n">[07]</span>
+      <span class="sh-n">[06]</span>
       <h2 class="sh-t">Direct Channels</h2>
       <span class="sh-s">No forms, just email</span>
     </div>
@@ -1244,11 +1121,10 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
 var CMDS=[
   {g:'Jump to',i:'◈',t:'Dossier',k:'01',to:'#dossier'},
   {g:'Jump to',i:'◈',t:'Capabilities',k:'02',to:'#capabilities'},
-  {g:'Jump to',i:'◈',t:'Field Notes',k:'03',to:'#notes'},
-  {g:'Jump to',i:'◈',t:'Selected Work',k:'04',to:'#projects'},
-  {g:'Jump to',i:'◈',t:'Journey',k:'05',to:'#journey'},
-  {g:'Jump to',i:'◈',t:'Credentials',k:'06',to:'#certs'},
-  {g:'Jump to',i:'◈',t:'Direct Channels',k:'07',to:'#contact'},
+  {g:'Jump to',i:'◈',t:'AI Security Labs',k:'03',to:'#projects'},
+  {g:'Jump to',i:'◈',t:'Journey',k:'04',to:'#journey'},
+  {g:'Jump to',i:'◈',t:'Credentials',k:'05',to:'#certs'},
+  {g:'Jump to',i:'◈',t:'Direct Channels',k:'06',to:'#contact'},
   {g:'Actions',i:'✉',t:'Email me',k:'@',to:'mailto:pramathramekar@gmail.com',ext:true},
   {g:'Actions',i:'↓',t:'Download résumé (PDF)',k:'CV',to:'assets/resume.pdf',dl:true},
   {g:'Actions',i:'⎇',t:'Open GitHub',k:'GH',to:'https://github.com/Pramath-Ramekar',ext:true},
