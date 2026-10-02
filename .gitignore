@@ -5,3 +5,5 @@ Thumbs.db
 _qa*.py
 _qa*.js
 _extracted.js
+.vercel
+.vercel
