@@ -1,23 +1,29 @@
-# pramathramekar.github.io
+# Portfolio — AI, Cloud & Security
 
 Single-file portfolio — one self-contained `index.html`, zero build step, zero dependencies
 apart from Google Fonts.
 
-## Deploy to GitHub Pages
+## Live
+
+| | |
+|---|---|
+| **Canonical** | https://portfolio-pramathramekar-gmailcoms-projects.vercel.app |
+| Vercel project | `portfolio` (team: pramathramekar-gmailcoms-projects) |
+| Source | https://github.com/Pramath-Ramekar/Pramath-Ramekar.github.io |
+| Fallback | https://pramath-ramekar.github.io (GitHub Pages) |
+
+## Deploy
 
 ```bash
-cd D:\Portfolio-web
-git init
-git add .
-git commit -m "Portfolio: editorial-terminal single-file build"
-git branch -M main
-git remote add origin https://github.com/Pramath-Ramekar/Pramath-Ramekar.github.io.git
-git push -u origin main
+vercel --prod --yes --name portfolio
 ```
 
-Then in the repo: **Settings → Pages → Source: Deploy from a branch → `main` / `root`**.
+`--name` is required — the CLI otherwise derives a name from the `D:\` folder path
+and Vercel rejects it.
 
-Live at `https://pramath-ramekar.github.io` shortly after.
+Pushes do **not** auto-deploy yet: the Vercel GitHub App is not authorized for this repo.
+Connect it at vercel.com → portfolio → Settings → Git, or just run the command above
+whenever you want to publish.
 
 ## Local preview
 
@@ -31,7 +37,9 @@ python -m http.server 8899
 | Path | What |
 |---|---|
 | `index.html` | Everything — markup, CSS, JS |
+| `vercel.json` | Security headers + cache rules (HSTS, X-Frame-Options, nosniff) |
 | `assets/resume.pdf` | Downloadable CV |
+| `404.html` | Redirect fallback |
 
 ## Features
 
