@@ -21,7 +21,7 @@
         "AuthN",
         "LLM02"
       ],
-      "excerpt": "An agent memory layer accepted any JWT with its signature unchecked. The remedy was to make the endpoint unreachable — but unreachable is a circumstance, not a control."
+      "excerpt": "An agent memory layer accepted any JWT with its signature unchecked. The remedy was to make the endpoint unreachable, but unreachable is a circumstance, not a control."
     },
     {
       "title": "Read-only is not inert: how a sandbox handed over the host's credentials",

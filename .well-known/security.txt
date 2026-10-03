@@ -1,0 +1,20 @@
+Contact: mailto:pramathramekar@gmail.com
+Contact: https://www.linkedin.com/in/pramath-ramekar/
+Preferred-Languages: en, hi, mr
+Canonical: https://pramathramekar.dev/
+
+Policy: https://pramathramekar.dev/blog/
+Scope: This site and its static assets only. Third-party services linked from this site
+  (GitHub, LinkedIn, Vercel) are out of scope.
+
+# Security notes
+
+This is a static portfolio site. There is no login, no session, no database, and no
+server-side code. Nothing submitted here is stored.
+
+Reported vulnerabilities in the site itself are welcome. Reports are handled directly
+by me; there is no bounty programme for this site.
+
+For vulnerabilities in AI systems, products or research, see the case studies on the
+blog page. Responsible disclosure reports for those go through HackerOne or Bugcrowd
+rather than to this address.

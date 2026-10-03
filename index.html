@@ -3,10 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pramath Ramekar — AI Security Researcher</title>
-<meta name="description" content="Bug bounty hunter and penetration tester turned AI security researcher. 3,000+ hours of VAPT on HackerOne and Bugcrowd, now attacking agentic AI systems — auth bypass, prompt injection, excessive agency.">
+<title>Pramath Ramekar, AI Security Researcher</title>
+<meta name="description" content="Bug bounty hunter and penetration tester turned AI security researcher. 3,000+ hours of VAPT on HackerOne and Bugcrowd, now attacking agentic AI systems: auth bypass, prompt injection, excessive agency.">
 <meta name="theme-color" content="#0A0710">
-<meta property="og:title" content="Pramath Ramekar — AI Security Researcher">
+<link rel="canonical" href="https://pramathramekar.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pramathramekar.dev/">
+<meta property="og:image" content="https://pramathramekar.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pramath Ramekar, AI Security Researcher">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pramath Ramekar, AI Security Researcher">
+<meta name="twitter:description" content="Bug bounty hunter turned AI security researcher. 3,000+ hours of VAPT, now attacking agentic AI systems.">
+<meta name="twitter:image" content="https://pramathramekar.dev/og.png">
+
+<meta property="og:title" content="Pramath Ramekar, AI Security Researcher">
 <meta property="og:description" content="From traditional bug bounty and VAPT into agentic AI security.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0710'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='16' font-weight='700' fill='%23A855F7' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
@@ -15,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PRAMATH RAMEKAR — editorial/terminal hybrid
+   PRAMATH RAMEKAR: editorial/terminal hybrid
    single-file build · no dependencies beyond webfonts
    ============================================================ */
 :root{
@@ -122,7 +134,7 @@ section{position:relative;z-index:1}
 
 /* ---------- hero ---------- */
 /* ---------- hero grid (kills side gutters on wide screens) ---------- */
-.hero{padding-block:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,3rem)}
+.hero{padding-block:clamp(5rem,9vw,7.5rem) clamp(2rem,4vw,3rem)}
 .hero-g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
   gap:clamp(1.5rem,3vw,3rem);align-items:end}
 .hero-main{min-width:0}
@@ -441,6 +453,49 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 
 
 
+/* pull quote */
+.pull{
+  margin:1.6rem 0;padding:1.1rem 0 1.1rem 1.25rem;border-left:2px solid var(--violet);
+  font-family:var(--font-d);font-size:clamp(1.05rem,1.9vw,1.3rem);font-weight:500;
+  letter-spacing:-.015em;line-height:1.45;color:var(--ink);
+}
+
+/* metric note */
+.metric-note{margin-top:1.1rem;font-size:.78rem;color:var(--faint);line-height:1.7;max-width:70ch}
+.metric-note strong{color:var(--muted);font-weight:500}
+
+
+/* ---------- section nav (scroll-spy) ---------- */
+.snav{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  background:rgba(10,7,16,.86);backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid transparent;transition:border-color .3s var(--ease);
+}
+.snav.stuck{border-bottom-color:var(--line)}
+.snav-in{display:flex;align-items:center;gap:.3rem;height:52px;overflow-x:auto;scrollbar-width:none}
+.snav-in::-webkit-scrollbar{display:none}
+.snav-brand{
+  font-family:var(--font-m);font-size:.68rem;font-weight:700;letter-spacing:.14em;
+  color:var(--ink);margin-right:auto;white-space:nowrap;padding-right:1rem;display:flex;align-items:center;gap:.5rem;
+}
+.snav-dot{width:6px;height:6px;border-radius:50%;background:var(--violet);box-shadow:0 0 10px var(--violet);flex:none}
+.snav a{
+  font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:.45rem .6rem;border-radius:4px;white-space:nowrap;
+  transition:color .22s var(--ease),background .22s var(--ease);
+}
+.snav a:hover{color:var(--ink)}
+.snav a.on{color:var(--lav);background:rgba(168,85,247,.13)}
+.snav-menu{display:none}
+@media(max-width:760px){
+  .snav-in{gap:0}
+  .snav a:not(.on){display:none}
+  .snav a.on{display:inline-flex}
+  .snav-menu{display:inline-flex;margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){.snav{transition:none}}
+
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .68s var(--ease),transform .68s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -463,6 +518,24 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+
+
+<!-- section nav -->
+<nav class="snav" id="snav" aria-label="Sections">
+  <div class="wrap snav-in">
+    <span class="snav-brand"><i class="snav-dot"></i>PRAMATH</span>
+    <a href="#dossier" data-spy="dossier">Dossier</a>
+    <a href="#capabilities" data-spy="capabilities">Capabilities</a>
+    <a href="#projects" data-spy="projects">Labs</a>
+    <a href="#blog" data-spy="blog">Blog</a>
+    <a href="#journey" data-spy="journey">Journey</a>
+    <a href="#certs" data-spy="certs">Credentials</a>
+    <a href="#contact" data-spy="contact">Contact</a>
+    <button class="dk snav-menu" id="snavMenu" aria-label="Jump to section" aria-haspopup="dialog" aria-controls="kb">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
 
 <!-- floating dock: palette + CV -->
 <div class="dock">
@@ -487,7 +560,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <div class="hero-ed">
         <span>BUG BOUNTY <b>→</b> AI SECURITY</span>
         <span class="hero-ed-r">
-          <span>B.TECH AI &amp; ML — <b>2028</b></span>
+          <span>B.TECH AI &amp; ML, <b>2028</b></span>
           <span>IST · <b>UTC+05:30</b></span>
         </span>
       </div>
@@ -500,7 +573,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       </div>
       <p class="h-tag">
         <em>3,000+ hours</em> of bug bounty and penetration testing taught me how web trust breaks.
-        Now I bring that to <em>agentic AI</em> — authentication, tool schemas and autonomy limits.
+        Now I bring that to <em>agentic AI</em>: authentication, tool schemas and autonomy limits.
       </p>
       <div class="h-cta">
         <a class="btn btn-p" href="#projects">
@@ -512,25 +585,26 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     </div>
 
     <aside class="hero-side">
+      <noscript><style>.stat-n .pfx{display:none}</style></noscript>
       <div class="stats">
         <div class="stat">
-          <div class="stat-n"><span data-count="3000">0</span><span class="pfx">+</span></div>
+          <div class="stat-n"><span data-count="3000">3,000</span><span class="pfx">+</span></div>
           <div class="stat-l">Hours of bug<br>bounty research</div>
         </div>
         <div class="stat">
-          <div class="stat-n"><span data-count="7">0</span><span class="pfx">/10</span></div>
+          <div class="stat-n"><span data-count="7">7</span><span class="pfx">/10</span></div>
           <div class="stat-l">OWASP Web<br>Top 10 coverage</div>
         </div>
         <div class="stat">
-          <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
+          <div class="stat-n"><span data-count="4">4</span><span class="pfx">/10</span></div>
           <div class="stat-l">OWASP LLM<br>Top 10 coverage</div>
         </div>
         <div class="stat">
-          <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
+          <div class="stat-n"><span data-count="4">4</span><span class="pfx">/10</span></div>
           <div class="stat-l">OWASP API<br>Top 10 coverage</div>
         </div>
         <div class="stat">
-          <div class="stat-n"><span data-count="6">0</span></div>
+          <div class="stat-n"><span data-count="6">6</span></div>
           <div class="stat-l">Certifications<br>earned or active</div>
         </div>
       </div>
@@ -544,6 +618,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       </div>
     </div>
     <div class="cue"><span class="cue-b"></span>Scroll to read the dossier</div>
+
+    <p class="metric-note rv">
+      <strong>Coverage</strong> means categories where I have hands-on finding experience:
+      found, reproduced and reported, not studied. LLM Top 10 covers LLM01 Prompt Injection,
+      LLM06 Excessive Agency, LLM07 System Prompt Leakage and LLM10 Unbounded Consumption.
+    </p>
+
   </div>
 </section>
 
@@ -559,7 +640,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <div class="dossier">
       <div class="rv">
         <p class="dos-p">
-          I came up through <span class="hl">bug bounty and traditional penetration testing</span> —
+          I came up through <span class="hl">bug bounty and traditional penetration testing</span>.
           <strong>3,000+ hours</strong> hunting web, API and infrastructure bugs on HackerOne and
           Bugcrowd, reaching OWASP Top 10 <span class="hl">7/10</span> and API Top 10
           <span class="hl">4/10</span> coverage. Now I've moved that same discipline onto
@@ -572,21 +653,20 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
           <strong>Adobe Express content filter bypass</strong> found at NullCon Goa 2026 and reviewed
           by Adobe's security team.
         </p>
+        <blockquote class="pull rv">
+          Autonomy is something an agent earns through evidence, never something it's granted.
+        </blockquote>
         <p class="dos-p">
           Day job is SOC and internal pentesting at <span class="hl">Arica Tech Security LLP</span>,
-          where I deployed the company's Wazuh SIEM from zero. Autonomy is something an agent earns
-          through evidence — never something it's granted.
+          where I deployed the company's Wazuh SIEM from zero.
         </p>
       </div>
 
       <dl class="facts rv">
-        <div class="fact"><dt>Role</dt><dd>Security Analyst Apprentice</dd></div>
-        <div class="fact"><dt>Org</dt><dd>Arica Tech Security LLP</dd></div>
-        <div class="fact"><dt>Based</dt><dd>Pune, Maharashtra, IN</dd></div>
+        <div class="fact"><dt>Day job</dt><dd>Arica Tech Security LLP</dd></div>
         <div class="fact"><dt>Focus</dt><dd class="a">AI Security Research</dd></div>
         <div class="fact"><dt>From</dt><dd>Bug bounty &amp; pentesting</dd></div>
         <div class="fact"><dt>Platforms</dt><dd>HackerOne · Bugcrowd</dd></div>
-        <div class="fact"><dt>Education</dt><dd>B.Tech AI &amp; ML · 2028</dd></div>
         <div class="fact"><dt>Language</dt><dd>English · Hindi · Marathi</dd></div>
         <div class="fact"><dt>Availability</dt><dd class="a">Open to research collab</dd></div>
       </dl>
@@ -600,10 +680,16 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <div class="sh rv">
       <span class="sh-n">[02]</span>
       <h2 class="sh-t">Capabilities</h2>
-      <span class="sh-s">What I actually do</span>
+      <span class="sh-s">Pivot first, foundations second</span>
     </div>
 
     <div class="caps rv">
+      <div class="cap">
+        <span class="cap-g">⬡</span>
+        <h3 class="cap-t">Agentic AI Security</h3>
+        <p class="cap-s">Attacking the agent layer, not just the model. Authentication, tool schemas, autonomy limits.</p>
+        <div class="cap-k"><span>Prompt Injection</span><span>Excessive Agency</span><span>Tool Schema Abuse</span><span>System Prompt Extraction</span><span>Agent AuthN</span></div>
+      </div>
       <div class="cap">
         <span class="cap-g">⟁</span>
         <h3 class="cap-t">Bug Bounty Hunter</h3>
@@ -613,14 +699,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <div class="cap">
         <span class="cap-g">◎</span>
         <h3 class="cap-t">Traditional Pentesting</h3>
-        <p class="cap-s">Web and network penetration testing, end to end — where I started.</p>
+        <p class="cap-s">Web and network penetration testing, end to end. Where I started.</p>
         <div class="cap-k"><span>Web App PT</span><span>Network VAPT</span><span>ATO</span><span>IDOR</span><span>Broken Access Control</span></div>
-      </div>
-      <div class="cap">
-        <span class="cap-g">⬡</span>
-        <h3 class="cap-t">Agentic AI Security</h3>
-        <p class="cap-s">Attacking the agent layer, not just the model. Authentication, tool schemas, autonomy limits.</p>
-        <div class="cap-k"><span>Prompt Injection</span><span>Excessive Agency</span><span>Tool Schema Abuse</span><span>System Prompt Extraction</span><span>Agent AuthN</span></div>
       </div>
       <div class="cap">
         <span class="cap-g">◈</span>
@@ -688,6 +768,11 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       </div>
     </div>
 
+    <p class="metric-note rv">
+      <strong>Method.</strong> Each lab runs my own attack suite against the vulnerable baseline,
+      then the same suite against the hardened build. Pass rates measure the defence, not the attack.
+    </p>
+
     <div class="projs">
       <article class="proj rv open">
         <div class="proj-h" data-toggle>
@@ -710,7 +795,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
             <span class="tag">GitHub Actions</span>
             <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
-              Disclose
+              Case study
             </a>
           </div>
         </div></div></div>
@@ -738,7 +823,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
             <span class="tag">Guardrails</span>
             <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
-              Disclose
+              Case study
             </a>
           </div>
         </div></div></div>
@@ -754,8 +839,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
           <p class="proj-desc">Break-and-rebuild lab on a tool-using autonomous agent, covering OWASP LLM01, LLM06 and LLM07. A policy engine, action monitor, approval gate, audit logger and tool registry take the vulnerable agent from two dangerous tool executions to none.</p>
           <div class="kv">
-            <div class="kv-i"><div class="kv-k">Dangerous execs</div><div class="kv-v">2 → <span class="g">0</span></div></div>
-            <div class="kv-i"><div class="kv-k">Pass rate</div><div class="kv-v"><span class="g">100%</span> · 13 attacks</div></div>
+            <div class="kv-i"><div class="kv-k">Dangerous execs</div><div class="kv-v">2 → <span class="g">0</span> blocked</div></div>
+            <div class="kv-i"><div class="kv-k">Own attack suite</div><div class="kv-v"><span class="g">100%</span> blocked · 13</div></div>
             <div class="kv-i"><div class="kv-k">Covers</div><div class="kv-v">LLM01 · LLM06 · LLM07</div></div>
             <div class="kv-i"><div class="kv-k">Controls</div><div class="kv-v">Policy · Approval gate</div></div>
           </div>
@@ -765,7 +850,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
             <span class="tag">Tool Schema</span>
             <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
-              Disclose
+              Case study
             </a>
           </div>
         </div></div></div>
@@ -781,7 +866,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
           <p class="proj-desc">AI SOC pipeline detecting misuse and suspicious activity across AI systems in real time. A telemetry collector, detection rules engine, alert manager and dashboard run live attacks against the hardened agent from lab 03.</p>
           <div class="kv">
-            <div class="kv-i"><div class="kv-k">Attacks run</div><div class="kv-v">7 live</div></div>
+            <div class="kv-i"><div class="kv-k">Own attack suite</div><div class="kv-v">7 live</div></div>
             <div class="kv-i"><div class="kv-k">Telemetry</div><div class="kv-v"><span class="g">57</span> events captured</div></div>
             <div class="kv-i"><div class="kv-k">Covers</div><div class="kv-v">LLM01 · LLM02 · LLM06</div></div>
             <div class="kv-i"><div class="kv-k">Stack</div><div class="kv-v">OpenTelemetry</div></div>
@@ -792,7 +877,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
             <span class="tag">OpenTelemetry</span>
             <a class="lnk" href="https://github.com/Pramath-Ramekar/AI-Security-Projects#readme" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>
-              Disclose
+              Case study
             </a>
           </div>
         </div></div></div>
@@ -815,7 +900,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <div class="blogcta-k">FIELD NOTES</div>
         <div class="blogcta-t">Short write-ups on AI agent security.</div>
         <p class="blogcta-b">
-          Prompt injection, excessive agency, sandbox escapes and the control failures behind them —
+          Prompt injection, excessive agency, sandbox escapes and the control failures behind them,
           written up as they land, each linking back to the original post.
         </p>
         <div class="chip-row">
@@ -848,8 +933,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <div class="jr-o">Modern College of Engineering, Pune — B.Tech AI &amp; ML</div>
-          <p class="proj-desc">Started in AI &amp; ML and pulled toward security — how systems break, and what it takes to make them hold.</p>
+          <div class="jr-o">Modern College of Engineering, Pune, B.Tech AI &amp; ML</div>
+          <p class="proj-desc">Started in AI &amp; ML and pulled toward security: how systems break, and what it takes to make them hold.</p>
         </div></div></div>
       </article>
 
@@ -862,7 +947,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
           <div class="jr-o">HackerOne · Bugcrowd · Self-directed</div>
-          <p class="proj-desc">3,000+ hours of traditional bug bounty and web/API pentesting. This is where I learned to break software for real — OWASP Top 10 7/10, API Top 10 4/10.</p>
+          <p class="proj-desc">3,000+ hours of traditional bug bounty and web/API pentesting. This is where I learned to break software for real. OWASP Top 10 7/10, API Top 10 4/10.</p>
         </div></div></div>
       </article>
 
@@ -875,7 +960,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
           <div class="jr-o">Arica Tech Security LLP</div>
-          <p class="proj-desc">Researched internal products, mapped attack surfaces and documented findings for the dev team — then moved into full pentesting engagements.</p>
+          <p class="proj-desc">Researched internal products, mapped attack surfaces and documented findings for the dev team, then moved into full pentesting engagements.</p>
         </div></div></div>
       </article>
 
@@ -887,8 +972,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
           <span class="proj-cv">+</span>
         </div>
         <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
-          <div class="jr-o">Arica Tech Security LLP · Pune — present</div>
-          <p class="proj-desc">Built the organisation's security operations from the ground up — SOC and alert triage on a Wazuh SIEM I deployed myself, incident response — then ran adversarial testing against internal AI products and moved from pentesting into agentic AI security.</p>
+          <div class="jr-o">Arica Tech Security LLP · Pune, present</div>
+          <p class="proj-desc">Built the organisation's security operations from the ground up: SOC and alert triage on a Wazuh SIEM I deployed myself, incident response, then ran adversarial testing against internal AI products and moved from pentesting into agentic AI security.</p>
         </div></div></div>
       </article>
 
@@ -914,7 +999,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <div class="sh rv">
       <span class="sh-n">[06]</span>
       <h2 class="sh-t">Credentials</h2>
-      <span class="sh-s">Verified &amp; in progress</span>
+      <span class="sh-s">Earned &amp; in progress</span>
     </div>
 
     <div class="certs rv">
@@ -960,13 +1045,14 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
         <h3 class="ct-t">Found something <span>worth breaking?</span></h3>
         <p class="ct-b">
           Open to research collaboration and security roles where agentic AI is a real attack surface.
-          Have a program or an AI product to break? Write to me — I answer email.
+          Have a program or an AI product to break? Write to me. I answer email.
         </p>
         <div class="h-cta" style="margin-bottom:0">
           <a class="btn btn-p" href="mailto:pramathramekar@gmail.com">
             pramathramekar@gmail.com
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
+          <button class="btn btn-g" id="copyMail">Copy email</button>
           <a class="btn btn-g" href="assets/resume.pdf" download>Download CV</a>
         </div>
       </div>
@@ -984,10 +1070,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
           <span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
           <span><span class="ct-lb">Email</span><span class="ct-lv">pramathramekar@gmail.com</span></span>
         </a>
-        <a class="ct-l" href="tel:+919579735863">
-          <span class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-          <span><span class="ct-lb">Phone</span><span class="ct-lv">+91 95797 35863</span></span>
-        </a>
+        
       </div>
     </div>
   </div>
@@ -999,9 +1082,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
   <div class="wrap">
     <div class="f-in">
       <div class="f-t">
-        <b>Pramath V. Ramekar</b> — Bug Bounty Hunter → AI Security Researcher<br>
+        <b>Pramath V. Ramekar</b>, Bug Bounty Hunter → AI Security Researcher<br>
         Designed &amp; built as a single self-contained page · <a href="assets/resume.pdf" download>Resume PDF</a> ·
-        <a href="https://github.com/Pramath-Ramekar" target="_blank" rel="noopener">Source</a>
+        <a href="https://github.com/Pramath-Ramekar/Pramath-Ramekar.github.io" target="_blank" rel="noopener">Source</a>
       </div>
       <div class="f-badge"><i></i>Pune, India · IST</div>
     </div>
@@ -1091,7 +1174,7 @@ if('IntersectionObserver' in window){
     });
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   $$('.rv').forEach(function(el){io.observe(el)});
-  // hero stats sit above the fold — trigger right away if already visible
+  // hero stats sit above the fold: trigger right away if already visible
   var st=$('.stats');
   if(st && st.getBoundingClientRect().top < window.innerHeight){
     cEls.forEach(function(c){ c.run(c.el); });
@@ -1118,7 +1201,81 @@ $$('[data-toggle]').forEach(function(h){
 });
 $$('.proj.open [data-toggle]').forEach(function(h){h.setAttribute('aria-expanded','true')});
 
-/* ---------- 6. command palette ---------- */
+/* ---------- 6. section nav scroll-spy ---------- */
+(function spy(){
+  var bar=$('#snav'); if(!bar) return;
+  var links=$$('[data-spy]');
+  if(!links.length) return;
+  var secs=links.map(function(a){
+    var el=document.getElementById(a.getAttribute('data-spy'));
+    if(!el) return null;
+    el.__spyId=a.getAttribute('data-spy');
+    return el;
+  }).filter(Boolean);
+  if(!secs.length) return;
+
+  var current='';
+  function setActive(id){
+    if(id===current) return;
+    current=id;
+    links.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('data-spy')===id);
+    });
+  }
+  function pick(){
+    // last section whose top has passed the probe line
+    var probe=window.scrollY + Math.max(120, window.innerHeight*0.3);
+    var picked=secs[0];
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].offsetTop<=probe) picked=secs[i];
+    }
+    // at the very bottom, always light the last one
+    if(window.innerHeight+window.scrollY >= document.body.scrollHeight-4){
+      picked=secs[secs.length-1];
+    }
+    setActive(picked.__spyId);
+  }
+  var raf=null;
+  window.addEventListener('scroll',function(){
+    bar.classList.toggle('stuck', window.scrollY>8);
+    if(raf) return;
+    raf=requestAnimationFrame(function(){ raf=null; pick(); });
+  },{passive:true});
+  window.addEventListener('resize',function(){ raf=null; pick(); },{passive:true});
+  pick();
+  setTimeout(pick,60);
+
+  var mb=$('#snavMenu');
+  if(mb) mb.addEventListener('click',function(){ var o=$('#kbOpen'); if(o) o.click(); });
+})();
+
+/* ---------- 7. copy email ---------- */
+(function copyMail(){
+  var btn=$('#copyMail'); if(!btn) return;
+  var out=$('#copyMailMsg');
+  function flash(txt){
+    btn.textContent=txt;
+    if(out) out.textContent='';
+    setTimeout(function(){ btn.textContent='Copy email'; }, 1800);
+  }
+  btn.addEventListener('click',function(){
+    var addr='pramathramekar@gmail.com';
+    var done=function(){ flash('Copied'); };
+    var fail=function(){ flash('Select and copy'); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(done).catch(function(){
+        try{
+          var ta=document.createElement('textarea'); ta.value=addr;
+          ta.style.position='fixed'; ta.style.opacity='0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); ta.remove(); done();
+        }catch(e){ fail(); }
+      });
+    }else{ fail(); }
+  });
+})();
+
+/* ---------- 8. command palette ---------- */
 var CMDS=[
   {g:'Jump to',i:'◈',t:'Dossier',k:'01',to:'#dossier'},
   {g:'Jump to',i:'◈',t:'Capabilities',k:'02',to:'#capabilities'},
@@ -1131,7 +1288,6 @@ var CMDS=[
   {g:'Actions',i:'↓',t:'Download résumé (PDF)',k:'CV',to:'assets/resume.pdf',dl:true},
   {g:'Actions',i:'⎇',t:'Open GitHub',k:'GH',to:'https://github.com/Pramath-Ramekar',ext:true},
   {g:'Actions',i:'in',t:'Open LinkedIn',k:'IN',to:'https://www.linkedin.com/in/pramath-ramekar/',ext:true},
-  {g:'Actions',i:'✆',t:'Call +91 95797 35863',k:'TEL',to:'tel:+919579735863'}
 ];
 var ICON={
   '◈':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v10l8 5 8-5V7Z"/></svg>',
