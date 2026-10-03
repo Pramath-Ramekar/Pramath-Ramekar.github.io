@@ -43,8 +43,8 @@
   --font-m:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --font-b:'Inter',system-ui,sans-serif;
 
-  --gut:clamp(1.25rem,4vw,3.5rem);
-  --maxw:1280px;
+  --gut:clamp(1.15rem,3.2vw,2.5rem);
+  --maxw:1560px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -84,7 +84,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ---------- shell ---------- */
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);position:relative;z-index:1}
 section{position:relative;z-index:1}
-.sec{padding-block:clamp(4.5rem,9vw,8rem);border-top:1px solid var(--line-soft);position:relative}
+.sec{padding-block:clamp(3.5rem,6vw,5.5rem);border-top:1px solid var(--line-soft);position:relative}
 .sec:first-of-type{border-top:none}
 
 /* section header */
@@ -121,52 +121,44 @@ section{position:relative;z-index:1}
 .btn svg{width:14px;height:14px;flex:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;z-index:1;padding-block:clamp(3.5rem,8vw,7rem) clamp(2.5rem,5vw,4rem)}
-.hero-ed{
-  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;
+/* ---------- hero grid (kills side gutters on wide screens) ---------- */
+.hero{padding-block:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,3rem)}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(1.5rem,3vw,3rem);align-items:end}
+.hero-main{min-width:0}
+.hero-ed{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;
   font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--faint);padding-bottom:1.4rem;margin-bottom:clamp(1.8rem,4vw,3rem);
-  border-bottom:1px dashed var(--line);
-}
-.hero-ed b{color:var(--violet);font-weight:500}
+  color:var(--faint);padding-bottom:1rem;margin-bottom:clamp(1.2rem,2.4vw,2rem);
+  border-bottom:1px dashed var(--line)}
 .hero-ed-r{display:flex;gap:1.5rem;flex-wrap:wrap}
-
+.hero-side{min-width:0;padding-bottom:.35rem}
 .h-name{
-  font-family:var(--font-d);font-weight:700;letter-spacing:-.045em;line-height:.9;
-  font-size:clamp(3.1rem,13vw,10.5rem);margin-bottom:.5rem;
+  font-family:var(--font-d);font-weight:700;letter-spacing:-.05em;line-height:.92;
+  font-size:clamp(2.9rem,8.2vw,7.6rem);margin-bottom:.6rem;
   background:linear-gradient(172deg,#fff 8%,var(--lav) 46%,var(--violet-deep) 96%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.h-role{
-  font-family:var(--font-d);font-size:clamp(.98rem,2.2vw,1.5rem);font-weight:500;
-  letter-spacing:-.01em;color:var(--ink);margin-bottom:1.5rem;line-height:1.35;
+@media(max-width:1080px){
+  .hero-g{grid-template-columns:1fr;align-items:start}
+  .hero-side{padding-top:.5rem}
 }
-.h-role .sep{color:var(--violet);margin:0 .5rem}
-@media(max-width:640px){.h-role .sep{display:block;height:0;overflow:hidden}}
-.h-tag{
-  font-size:clamp(1rem,1.6vw,1.18rem);color:var(--ink-2);max-width:60ch;
-  line-height:1.7;border-left:2px solid var(--violet-deep);padding-left:1.15rem;margin-bottom:2.2rem;
-}
-.h-tag em{color:var(--ink);font-style:normal;font-weight:500}
-.h-cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:clamp(2.5rem,6vw,4.5rem)}
 
 /* stat strip */
 .stats{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;
 }
-.stat{padding:1.3rem 1.1rem;border-right:1px solid var(--line-soft);transition:background .3s var(--ease)}
-.stat:last-child{border-right:none}
+.stat{padding:.95rem .9rem;background:var(--bg);transition:background .3s var(--ease)}
 .stat:hover{background:var(--surface-2)}
-@media(max-width:600px){.stat{border-bottom:1px solid var(--line-soft)}.stat:nth-child(2n){border-right:none}}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}}
 .stat-n{
-  font-family:var(--font-d);font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700;
+  font-family:var(--font-d);font-size:clamp(1.45rem,2.4vw,2rem);font-weight:700;
   letter-spacing:-.03em;color:var(--violet);line-height:1;display:flex;align-items:baseline;gap:.08em;
 }
 .stat-n .pfx{font-size:.5em;color:var(--lav);font-weight:500}
 .stat-l{
-  font-family:var(--font-m);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--faint);margin-top:.6rem;line-height:1.5;
+  font-family:var(--font-m);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-top:.45rem;line-height:1.45;
 }
 
 /* marquee */
@@ -192,7 +184,7 @@ section{position:relative;z-index:1}
 @keyframes cue{0%{transform:translateX(-14px)}100%{transform:translateX(36px)}}
 
 /* ---------- dossier ---------- */
-.dossier{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.dossier{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(1.5rem,3vw,2.75rem);align-items:start}
 @media(max-width:920px){.dossier{grid-template-columns:1fr}}
 .dos-p{margin-bottom:1.5rem;color:var(--ink-2);line-height:1.78}
 .dos-p strong{color:var(--ink);font-weight:600}
@@ -205,7 +197,7 @@ section{position:relative;z-index:1}
 .fact dd.a{color:var(--lav)}
 
 /* ---------- capabilities ---------- */
-.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .cap{background:var(--bg);padding:1.6rem 1.4rem;transition:background .32s var(--ease);position:relative;overflow:hidden}
 .cap::before{content:'';position:absolute;inset:0;background:radial-gradient(320px 180px at 100% 0%,rgba(168,85,247,.16),transparent 70%);opacity:0;transition:opacity .34s var(--ease)}
 .cap:hover::before{opacity:1}
@@ -296,20 +288,8 @@ section{position:relative;z-index:1}
 .lnk:hover{background:var(--violet);color:#12061F;border-color:var(--violet)}
 .lnk svg{width:13px;height:13px}
 
-/* ---------- timeline ---------- */
-.jr{position:relative;padding-left:2.4rem}
-.jr::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--violet),var(--line) 70%,transparent)}
-.jr-i{position:relative;padding-bottom:2.2rem}
-.jr-i:last-child{padding-bottom:0}
-.jr-i::before{
-  content:'';position:absolute;left:-2.4rem;top:7px;width:15px;height:15px;border-radius:50%;
-  border:1px solid var(--line);background:var(--bg);transition:all .3s var(--ease);
-}
-.jr-i:hover::before{border-color:var(--violet);background:var(--violet);box-shadow:0 0 16px rgba(168,85,247,.65)}
-.jr-y{font-family:var(--font-m);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--violet);margin-bottom:.4rem}
-.jr-t{font-family:var(--font-d);font-size:1.14rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.15rem}
-.jr-o{font-family:var(--font-m);font-size:.72rem;color:var(--faint);margin-bottom:.6rem}
-.jr-b{font-size:.87rem;color:var(--muted);line-height:1.7;max-width:70ch}
+/* journey reuses the project-card accordion; only the org line is bespoke */
+.jr-o{font-family:var(--font-m);font-size:.68rem;color:var(--faint);margin-bottom:.7rem;letter-spacing:.02em}
 
 /* ---------- certs ---------- */
 .certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -426,31 +406,40 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 
 
 /* ---------- blog ---------- */
-.posts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.post{background:var(--bg);padding:1.5rem 1.4rem;display:grid;grid-template-columns:1fr auto;
-  gap:1.25rem;align-items:start;transition:background .3s var(--ease)}
-.post:hover{background:var(--surface)}
-@media(max-width:760px){.post{grid-template-columns:1fr}}
-.post-h{display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem;flex-wrap:wrap}
-.post-d{font-family:var(--font-m);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
-.post-t{font-family:var(--font-d);font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.5rem;line-height:1.32}
-.post-b{font-size:.87rem;color:var(--muted);line-height:1.7;max-width:72ch}
-.post-b em{color:var(--ink-2);font-style:normal}
-.post-x{font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--lav);border:1px solid var(--line);padding:.5rem .75rem;border-radius:4px;
-  align-self:center;white-space:nowrap;transition:all .24s var(--ease)}
-.post-x:hover{background:var(--violet);color:#12061F;border-color:var(--violet)}
-.blog-note{
-  display:flex;gap:.7rem;align-items:flex-start;margin-bottom:1.2rem;padding:.85rem 1rem;
-  border:1px dashed var(--line);border-radius:7px;background:rgba(168,85,247,.045);
-  font-family:var(--font-m);font-size:.7rem;color:var(--muted);line-height:1.6;
+/* ---------- blog CTA ---------- */
+.blogcta{
+  display:flex;align-items:center;gap:2rem;justify-content:space-between;flex-wrap:wrap;
+  border:1px solid var(--line);border-radius:10px;background:var(--surface);
+  padding:clamp(1.5rem,3vw,2.4rem);transition:all .3s var(--ease);position:relative;overflow:hidden;
 }
-.blog-note svg{width:14px;height:14px;color:var(--violet);flex:none;margin-top:.15rem}
-.blog-note code{color:var(--lav);background:rgba(168,85,247,.12);padding:.05rem .3rem;border-radius:3px}
-.blog-err{padding:1.4rem;text-align:center;font-family:var(--font-m);font-size:.8rem;color:var(--faint);
-  border:1px dashed var(--line);border-radius:8px}
-.blog-load{display:grid;place-items:center;padding:2.2rem;font-family:var(--font-m);font-size:.75rem;
-  color:var(--faint);letter-spacing:.12em;text-transform:uppercase}
+.blogcta::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(520px 260px at 100% 0%,rgba(168,85,247,.16),transparent 68%);
+  opacity:0;transition:opacity .34s var(--ease);
+}
+.blogcta:hover{border-color:rgba(168,85,247,.55);transform:translateY(-3px);
+  box-shadow:0 24px 54px -28px rgba(168,85,247,.65)}
+.blogcta:hover::before{opacity:1}
+.blogcta-l{position:relative;z-index:1;min-width:0;flex:1 1 380px}
+.blogcta-k{font-family:var(--font-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:.6rem}
+.blogcta-t{font-family:var(--font-d);font-size:clamp(1.25rem,2.6vw,1.85rem);font-weight:600;
+  letter-spacing:-.02em;line-height:1.22;margin-bottom:.6rem}
+.blogcta-b{font-size:.9rem;color:var(--muted);line-height:1.7;max-width:58ch;margin-bottom:1rem}
+.blogcta-go{
+  position:relative;z-index:1;flex:none;display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-m);font-size:.76rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  background:var(--violet);color:#12061F;padding:.9rem 1.3rem;border-radius:6px;
+  transition:all .26s var(--ease);white-space:nowrap;
+}
+.blogcta-go svg{width:14px;height:14px}
+.blogcta:hover .blogcta-go{background:var(--lav)}
+@media(max-width:640px){
+  .blogcta{flex-direction:column;align-items:flex-start;gap:1.3rem}
+  .blogcta-go{width:100%;justify-content:center}
+}
+
+
 
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .68s var(--ease),transform .68s var(--ease)}
@@ -493,62 +482,67 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <div class="wrap hero-g">
+    <div class="hero-main">
+      <div class="hero-ed">
+        <span>BUG BOUNTY <b>→</b> AI SECURITY</span>
+        <span class="hero-ed-r">
+          <span>B.TECH AI &amp; ML — <b>2028</b></span>
+          <span>IST · <b>UTC+05:30</b></span>
+        </span>
+      </div>
+
+      <h1 class="h-name" data-type>Pramath Ramekar</h1>
+      <div class="h-role">
+        <span>Bug Bounty Hunter</span><span class="sep">/</span>
+        <span>Penetration Tester</span><span class="sep">/</span>
+        <span>AI Security Researcher</span>
+      </div>
+      <p class="h-tag">
+        <em>3,000+ hours</em> of bug bounty and penetration testing taught me how web trust breaks.
+        Now I bring that to <em>agentic AI</em> — authentication, tool schemas and autonomy limits.
+      </p>
+      <div class="h-cta">
+        <a class="btn btn-p" href="#projects">
+          View my work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-g" href="mailto:pramathramekar@gmail.com">Get in touch</a>
+      </div>
+    </div>
+
+    <aside class="hero-side">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n"><span data-count="3000">0</span><span class="pfx">+</span></div>
+          <div class="stat-l">Hours of bug<br>bounty research</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n"><span data-count="7">0</span><span class="pfx">/10</span></div>
+          <div class="stat-l">OWASP Web<br>Top 10 coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
+          <div class="stat-l">OWASP LLM<br>Top 10 coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
+          <div class="stat-l">OWASP API<br>Top 10 coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n"><span data-count="6">0</span></div>
+          <div class="stat-l">Certifications<br>earned or active</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
   <div class="wrap">
-    <div class="hero-ed">
-      <span>BUG BOUNTY <b>→</b> AI SECURITY</span>
-      <span class="hero-ed-r">
-        <span>B.TECH AI &amp; ML — <b>2028</b></span>
-        <span>IST · <b>UTC+05:30</b></span>
-      </span>
-    </div>
-
-    <h1 class="h-name" data-type>Pramath Ramekar</h1>
-    <div class="h-role">
-      <span>Bug Bounty Hunter</span><span class="sep">/</span>
-      <span>Penetration Tester</span><span class="sep">/</span>
-      <span>AI Security Researcher</span>
-    </div>
-    <p class="h-tag">
-      <em>3,000+ hours</em> of bug bounty and penetration testing taught me how web trust breaks.
-      Now I bring that to <em>agentic AI</em> — authentication, tool schemas and autonomy limits.
-    </p>
-    <div class="h-cta">
-      <a class="btn btn-p" href="#projects">
-        View my work
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-g" href="mailto:pramathramekar@gmail.com">Get in touch</a>
-    </div>
-
-    <div class="stats rv">
-      <div class="stat">
-        <div class="stat-n"><span data-count="3000">0</span><span class="pfx">+</span></div>
-        <div class="stat-l">Hours of bug<br>bounty research</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n"><span data-count="7">0</span><span class="pfx">/10</span></div>
-        <div class="stat-l">OWASP Web<br>Top 10 coverage</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
-        <div class="stat-l">OWASP LLM<br>Top 10 coverage</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n"><span data-count="4">0</span><span class="pfx">/10</span></div>
-        <div class="stat-l">OWASP API<br>Top 10 coverage</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n"><span data-count="6">0</span></div>
-        <div class="stat-l">Certifications<br>earned or active</div>
-      </div>
-    </div>
-
     <div class="marq" aria-hidden="true">
       <div class="marq-tr">
         <span class="marq-it">Bug Bounty</span><span class="marq-it">Web Pentesting</span><span class="marq-it">VAPT</span><span class="marq-it">WAPT</span><span class="marq-it">Agentic AI Security</span><span class="marq-it">Prompt Injection</span><span class="marq-it">Excessive Agency</span><span class="marq-it">Bug Bounty</span><span class="marq-it">Web Pentesting</span><span class="marq-it">VAPT</span><span class="marq-it">WAPT</span><span class="marq-it">Agentic AI Security</span><span class="marq-it">Prompt Injection</span><span class="marq-it">Excessive Agency</span>
       </div>
     </div>
-
     <div class="cue"><span class="cue-b"></span>Scroll to read the dossier</div>
   </div>
 </section>
@@ -816,15 +810,23 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
       <span class="sh-s">Notes from the field</span>
     </div>
 
-    <div class="blog-note rv">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
-      <span>Posts are read from <code>posts.json</code> — add an entry there and redeploy, no code changes needed.
-      Each one links back to the original on LinkedIn.</span>
-    </div>
-
-    <div class="posts rv" id="blogList">
-      <div class="blog-load">Loading posts…</div>
-    </div>
+    <a class="blogcta rv" href="blogs/">
+      <div class="blogcta-l">
+        <div class="blogcta-k">FIELD NOTES</div>
+        <div class="blogcta-t">Short write-ups on AI agent security.</div>
+        <p class="blogcta-b">
+          Prompt injection, excessive agency, sandbox escapes and the control failures behind them —
+          written up as they land, each linking back to the original post.
+        </p>
+        <div class="chip-row">
+          <span class="tag">Prompt Injection</span><span class="tag">Excessive Agency</span><span class="tag">Agent AuthN</span>
+        </div>
+      </div>
+      <span class="blogcta-go">
+        Read the blog
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -834,46 +836,74 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.6rem 3.4rem;positio
     <div class="sh rv">
       <span class="sh-n">[05]</span>
       <h2 class="sh-t">Journey</h2>
-      <span class="sh-s">How I got here</span>
+      <span class="sh-s">Click to expand</span>
     </div>
 
-    <div class="jr rv">
-      <div class="jr-i">
-        <div class="jr-y">2024</div>
-        <h3 class="jr-t">Foundations</h3>
-        <div class="jr-o">Modern College of Engineering, Pune — B.Tech AI &amp; ML</div>
-        <p class="jr-b">Started in AI &amp; ML and pulled toward security — how systems break, and what it
-        takes to make them hold.</p>
-      </div>
-      <div class="jr-i">
-        <div class="jr-y">2025</div>
-        <h3 class="jr-t">Bug Bounty Hunter</h3>
-        <div class="jr-o">HackerOne · Bugcrowd · Self-directed</div>
-        <p class="jr-b">3,000+ hours of traditional bug bounty and web/API pentesting. This is where I learned
-        to break software for real — OWASP Top 10 7/10, API Top 10 4/10.</p>
-      </div>
-      <div class="jr-i">
-        <div class="jr-y">Dec 2025</div>
-        <h3 class="jr-t">Security Research Intern</h3>
-        <div class="jr-o">Arica Tech Security LLP</div>
-        <p class="jr-b">Researched internal products, mapped attack surfaces and documented findings for the
-        dev team — then moved into full pentesting engagements.</p>
-      </div>
-      <div class="jr-i">
-        <div class="jr-y">2026</div>
-        <h3 class="jr-t">Security Analyst Apprentice</h3>
-        <div class="jr-o">Arica Tech Security LLP · Pune — present</div>
-        <p class="jr-b">Built the organisation's security operations from the ground up — SOC and alert triage
-        on a Wazuh SIEM I deployed myself, incident response — then ran adversarial testing against
-        internal AI products and moved from pentesting into agentic AI security.</p>
-      </div>
-      <div class="jr-i">
-        <div class="jr-y">2026</div>
-        <h3 class="jr-t">Into AI Security</h3>
-        <div class="jr-o">CLLMSE · CLLMSP · NullCon Goa 2026</div>
-        <p class="jr-b">The current focus. CLLMSE and CLLMSP from Red Team Leaders, an Adobe Express AI filter
-        bypass disclosed at NullCon Goa 2026, and OSAI plus HTB COAE in progress.</p>
-      </div>
+    <div class="projs">
+      <article class="proj rv">
+        <div class="proj-h" data-toggle>
+          <span class="proj-id">01</span>
+          <span class="proj-name">Foundations</span>
+          <span class="proj-st dev">2024</span>
+          <span class="proj-cv">+</span>
+        </div>
+        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
+          <div class="jr-o">Modern College of Engineering, Pune — B.Tech AI &amp; ML</div>
+          <p class="proj-desc">Started in AI &amp; ML and pulled toward security — how systems break, and what it takes to make them hold.</p>
+        </div></div></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-h" data-toggle>
+          <span class="proj-id">02</span>
+          <span class="proj-name">Bug Bounty Hunter</span>
+          <span class="proj-st dev">2025</span>
+          <span class="proj-cv">+</span>
+        </div>
+        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
+          <div class="jr-o">HackerOne · Bugcrowd · Self-directed</div>
+          <p class="proj-desc">3,000+ hours of traditional bug bounty and web/API pentesting. This is where I learned to break software for real — OWASP Top 10 7/10, API Top 10 4/10.</p>
+        </div></div></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-h" data-toggle>
+          <span class="proj-id">03</span>
+          <span class="proj-name">Security Research Intern</span>
+          <span class="proj-st dev">Dec 2025</span>
+          <span class="proj-cv">+</span>
+        </div>
+        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
+          <div class="jr-o">Arica Tech Security LLP</div>
+          <p class="proj-desc">Researched internal products, mapped attack surfaces and documented findings for the dev team — then moved into full pentesting engagements.</p>
+        </div></div></div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-h" data-toggle>
+          <span class="proj-id">04</span>
+          <span class="proj-name">Security Analyst Apprentice</span>
+          <span class="proj-st dev">2026</span>
+          <span class="proj-cv">+</span>
+        </div>
+        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
+          <div class="jr-o">Arica Tech Security LLP · Pune — present</div>
+          <p class="proj-desc">Built the organisation's security operations from the ground up — SOC and alert triage on a Wazuh SIEM I deployed myself, incident response — then ran adversarial testing against internal AI products and moved from pentesting into agentic AI security.</p>
+        </div></div></div>
+      </article>
+
+      <article class="proj rv open">
+        <div class="proj-h" data-toggle>
+          <span class="proj-id">05</span>
+          <span class="proj-name">Into AI Security</span>
+          <span class="proj-st dev">2026</span>
+          <span class="proj-cv">+</span>
+        </div>
+        <div class="proj-b"><div class="proj-b-in"><div class="proj-b-c">
+          <div class="jr-o">CLLMSE · CLLMSP · NullCon Goa 2026</div>
+          <p class="proj-desc">The current focus. CLLMSE and CLLMSP from Red Team Leaders, an Adobe Express AI filter bypass disclosed at NullCon Goa 2026, and OSAI plus HTB COAE in progress.</p>
+        </div></div></div>
+      </article>
     </div>
   </div>
 </section>
@@ -1088,59 +1118,7 @@ $$('[data-toggle]').forEach(function(h){
 });
 $$('.proj.open [data-toggle]').forEach(function(h){h.setAttribute('aria-expanded','true')});
 
-/* ---------- 6. blog (reads posts.json) ---------- */
-function esc(t){
-  return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function fmtDate(d){
-  var m=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-  var dt=new Date(d+'T00:00:00');
-  if(isNaN(dt)) return String(d||'');
-  return m[dt.getMonth()]+' '+dt.getDate()+' '+dt.getFullYear();
-}
-function escAttr(u){
-  return String(u||'').replace(/"/g,'%22').replace(/'/g,'%27').replace(/</g,'%3C');
-}
-function renderPosts(list){
-  if(!list.length){
-    $('#blogList').innerHTML='<div class="blog-err">No posts yet — add one to <code>posts.json</code>.</div>';
-    return;
-  }
-  var h='';
-  list.forEach(function(p,i){
-    h+='<article class="post">'+
-       '<div>'+
-         '<div class="post-h"><span class="post-d">'+esc(fmtDate(p.date))+'</span>'+
-           (p.tags&&p.tags.length?'<span class="tag">'+esc(p.tags[0])+'</span>':'')+'</div>'+
-         '<h3 class="post-t">'+esc(p.title)+'</h3>'+
-         '<p class="post-b">'+esc(p.excerpt)+'</p>'+
-       '</div>'+
-       '<a class="post-x" href="'+escAttr(p.url)+'" target="_blank" rel="noopener">'+
-         'LinkedIn \u2197</a>'+
-       '</article>';
-  });
-  $('#blogList').innerHTML=h;
-}
-(function loadBlog(){
-  var box=$('#blogList');
-  if(!box) return;
-  if(location.protocol==='file:'){
-    box.innerHTML='<div class="blog-err">Open over http(s) to load posts.</div>';
-    return;
-  }
-  fetch('posts.json',{cache:'no-cache'})
-    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
-    .then(function(d){
-      var list=(d&&d.posts)||[];
-      list.sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); });
-      renderPosts(list);
-    })
-    .catch(function(){
-      box.innerHTML='<div class="blog-err">Could not load <code>posts.json</code> — serving the last known copy.</div>';
-    });
-})();
-
-/* ---------- 7. command palette ---------- */
+/* ---------- 6. command palette ---------- */
 var CMDS=[
   {g:'Jump to',i:'◈',t:'Dossier',k:'01',to:'#dossier'},
   {g:'Jump to',i:'◈',t:'Capabilities',k:'02',to:'#capabilities'},

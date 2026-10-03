@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Pramath Ramekar</title>
+<meta name="description" content="Field notes on AI agent security by Pramath Ramekar — prompt injection, excessive agency, agent authentication and sandbox escapes.">
+<meta name="theme-color" content="#0A0710">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0710'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='16' font-weight='700' fill='%23A855F7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0710;--surface:#120C1F;--surface-2:#171030;--line:#241B38;--line-soft:#1B1430;
+  --ink:#EDE7F6;--ink-2:#B3A8C7;--muted:#8A7EA0;--faint:#5D5375;
+  --violet:#A855F7;--violet-deep:#7C3AED;--lav:#D8B4FE;
+  --font-d:'Space Grotesk',system-ui,sans-serif;
+  --font-m:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --font-b:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;min-height:100vh;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 76% -6%,rgba(168,85,247,.17),transparent 62%),
+    radial-gradient(700px 460px at 4% 14%,rgba(124,58,237,.12),transparent 60%);
+}
+::selection{background:rgba(168,85,247,.35);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:3px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:clamp(1.15rem,3.2vw,2.5rem);position:relative;z-index:1}
+.tag{font-family:var(--font-m);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--lav);border:1px solid var(--line);background:var(--surface);padding:.24rem .52rem;border-radius:3px}
+.chip-row{display:flex;flex-wrap:wrap;gap:.45rem}
+/* top bar */
+.top{position:sticky;top:0;z-index:50;background:rgba(10,7,16,.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.top-in{display:flex;align-items:center;gap:1rem;height:54px;
+  font-family:var(--font-m);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.back{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);transition:color .2s}
+.back:hover{color:var(--lav)}
+.back svg{width:14px;height:14px}
+.top-r{margin-left:auto;color:var(--faint)}
+/* head */
+.head{padding-block:clamp(3rem,7vw,5.5rem) clamp(1.5rem,3vw,2.5rem)}
+.eyebrow{font-family:var(--font-m);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:1rem}
+h1{font-family:var(--font-d);font-size:clamp(2.2rem,7vw,4.6rem);font-weight:700;letter-spacing:-.04em;
+  line-height:1;margin-bottom:1.1rem;
+  background:linear-gradient(170deg,#fff 10%,var(--lav) 50%,var(--violet-deep) 98%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(1rem,1.6vw,1.14rem);color:var(--ink-2);max-width:62ch;line-height:1.72}
+/* list */
+.posts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;margin-bottom:4rem}
+.post{background:var(--bg);padding:clamp(1.5rem,3vw,2.1rem);display:grid;
+  grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:background .3s var(--ease)}
+.post:hover{background:var(--surface)}
+@media(max-width:720px){.post{grid-template-columns:1fr}}
+.post-h{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.post-d{font-family:var(--font-m);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.post-t{font-family:var(--font-d);font-size:clamp(1.15rem,2.2vw,1.45rem);font-weight:600;
+  letter-spacing:-.015em;line-height:1.3;margin-bottom:.6rem}
+.post-b{font-size:.92rem;color:var(--muted);line-height:1.72;max-width:66ch}
+.post-x{font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--lav);border:1px solid var(--line);padding:.55rem .8rem;border-radius:4px;
+  align-self:center;white-space:nowrap;transition:all .24s var(--ease)}
+.post-x:hover{background:var(--violet);color:#12061F;border-color:var(--violet)}
+.empty{padding:3rem 1rem;text-align:center;font-family:var(--font-m);font-size:.85rem;color:var(--faint)}
+footer{border-top:1px solid var(--line-soft);padding-block:2.4rem 3rem;position:relative;z-index:1}
+.f-t{font-family:var(--font-m);font-size:.7rem;color:var(--faint);line-height:2}
+.f-t b{color:var(--ink-2);font-weight:500}
+.f-t a{color:var(--lav)}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.001ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="wrap top-in">
+    <a class="back" href="../">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Portfolio
+    </a>
+    <span class="top-r">3 POSTS</span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Field Notes</div>
+      <h1>Writing on AI<br>agent security.</h1>
+      <p class="lede">
+        Prompt injection, excessive agency, agent authentication and sandbox escapes — written up as
+        they land. From a bug bounty hunter who moved from breaking websites to breaking agents.
+      </p>
+    </div>
+
+    <div class="posts">
+    <article class="post">
+      <div>
+        <div class="post-h"><span class="post-d">20 SEP 2026</span></div>
+        <h2 class="post-t">Accepted is not applied: when a security parameter silently does nothing</h2>
+        <p class="post-b">Silent inaction is worse than absence, because the caller believes the work is done. A finding that is accepted but never verified is an assumption wearing a ticket number.</p>
+        <div class="chip-row" style="margin-top:1rem"><span class="tag">CVE</span><span class="tag">Config</span><span class="tag">Silent Failure</span></div>
+      </div>
+      <a class="post-x" href="https://www.linkedin.com/in/pramath-ramekar/" target="_blank" rel="noopener">
+        LinkedIn ↗
+      </a>
+    </article>
+
+    <article class="post">
+      <div>
+        <div class="post-h"><span class="post-d">19 SEP 2026</span></div>
+        <h2 class="post-t">Unreachable is not a control: when authentication becomes decorative</h2>
+        <p class="post-b">An agent memory layer accepted any JWT with its signature unchecked. The remedy was to make the endpoint unreachable — but unreachable is a circumstance, not a control.</p>
+        <div class="chip-row" style="margin-top:1rem"><span class="tag">Agentic AI</span><span class="tag">AuthN</span><span class="tag">LLM02</span></div>
+      </div>
+      <a class="post-x" href="https://www.linkedin.com/in/pramath-ramekar/" target="_blank" rel="noopener">
+        LinkedIn ↗
+      </a>
+    </article>
+
+    <article class="post">
+      <div>
+        <div class="post-h"><span class="post-d">18 SEP 2026</span></div>
+        <h2 class="post-t">Read-only is not inert: how a sandbox handed over the host's credentials</h2>
+        <p class="post-b">A read-only proxy forwarded method calls, so sandboxed code subscribed to a host event and received live credentials. Containment is a channel problem, not a permissions problem.</p>
+        <div class="chip-row" style="margin-top:1rem"><span class="tag">Sandbox</span><span class="tag">Container Escape</span><span class="tag">Supply Chain</span></div>
+      </div>
+      <a class="post-x" href="https://www.linkedin.com/in/pramath-ramekar/" target="_blank" rel="noopener">
+        LinkedIn ↗
+      </a>
+    </article>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap f-t">
+    <b>Pramath V. Ramekar</b> — Bug Bounty Hunter → AI Security Researcher<br>
+    <a href="../">Back to portfolio</a> · <a href="../assets/resume.pdf" download>Resume PDF</a> ·
+    <a href="https://github.com/Pramath-Ramekar" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/pramath-ramekar/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+</body>
+</html>
