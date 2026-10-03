@@ -19,76 +19,58 @@
 <meta name="twitter:image" content="https://pramathramekar.dev/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0710;--surface:#120C1F;--surface-2:#171030;--line:#241B38;--line-soft:#1B1430;
-  --ink:#EDE7F6;--ink-2:#B3A8C7;--muted:#8A7EA0;--faint:#5D5375;
-  --violet:#A855F7;--violet-deep:#7C3AED;--lav:#D8B4FE;
+  --bg:#0A0710;--line-soft:#1B1430;--line:#241B38;--white:#FFFFFF;--ink:#EDE7F6;--ink-2:#B3A8C7;--muted:#8A7EA0;--faint:#5D5375;
+  --violet:#A855F7;--violet-deep:#7C3AED;--lav:#D8B4FE;--violet-30:rgba(168,85,247,.3);--nav-bg:rgba(10,7,16,.85);
   --font-d:'Space Grotesk',system-ui,sans-serif;
   --font-m:'JetBrains Mono',ui-monospace,Menlo,monospace;
   --font-b:'Inter',system-ui,sans-serif;
-  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;min-height:100vh;
-}
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(900px 520px at 76% -6%,rgba(168,85,247,.17),transparent 62%),
-    radial-gradient(700px 460px at 4% 14%,rgba(124,58,237,.12),transparent 60%);
-}
-::selection{background:rgba(168,85,247,.35);color:#fff}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+::selection{background:var(--violet-30);color:var(--white)}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:3px}
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:clamp(1.15rem,3.2vw,2.5rem);position:relative;z-index:1}
-.tag{font-family:var(--font-m);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--lav);border:1px solid var(--line);background:var(--surface);padding:.24rem .52rem;border-radius:3px}
-.chip-row{display:flex;flex-wrap:wrap;gap:.45rem}
-/* top bar */
-.top{position:sticky;top:0;z-index:50;background:rgba(10,7,16,.85);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
-.top-in{display:flex;align-items:center;gap:1rem;height:54px;
-  font-family:var(--font-m);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
-.back{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);transition:color .2s}
-.back:hover{color:var(--lav)}
-.back svg{width:14px;height:14px}
-.top-r{margin-left:auto;color:var(--faint)}
-/* head */
-.head{padding-block:clamp(3rem,7vw,5.5rem) clamp(1.5rem,3vw,2.5rem)}
-.eyebrow{font-family:var(--font-m);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--violet);margin-bottom:1rem}
-h1{font-family:var(--font-d);font-size:clamp(2.2rem,7vw,4.6rem);font-weight:700;letter-spacing:-.04em;
-  line-height:1;margin-bottom:1.1rem;
-  background:linear-gradient(170deg,#fff 10%,var(--lav) 50%,var(--violet-deep) 98%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.lede{font-size:clamp(1rem,1.6vw,1.14rem);color:var(--ink-2);max-width:62ch;line-height:1.72}
-/* list */
-.posts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:10px;overflow:hidden;margin-bottom:4rem}
-.post{background:var(--bg);padding:clamp(1.5rem,3vw,2.1rem);display:grid;
-  grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:background .3s var(--ease)}
-.post:hover{background:var(--surface)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:880px;margin:0 auto;padding-inline:clamp(20px,4vw,48px)}
+.tag{font-family:var(--font-m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px 16px}
+.top{position:sticky;top:0;z-index:50;height:64px;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.top-in{display:flex;align-items:center;gap:16px;height:100%}
+.back{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:15px;font-weight:500;color:var(--muted);transition:color .2s ease}
+.back:hover{color:var(--white)}
+.back svg{width:14px;height:14px;transition:transform .25s var(--ease-out)}
+.back:hover svg{transform:translateX(-3px)}
+.top-r{margin-left:auto;font-family:var(--font-m);font-size:11px;letter-spacing:.12em;color:var(--faint)}
+.head-bg{position:relative}
+.head{padding-block:clamp(64px,10vw,112px) clamp(40px,5vw,56px)}
+.eyebrow{font-family:var(--font-m);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:16px}
+h1{font-family:var(--font-d);font-size:clamp(40px,6vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin-bottom:20px;color:var(--white)}
+.lede{font-size:18px;color:var(--ink-2);max-width:60ch}
+.posts{display:grid;border-top:1px solid var(--line-soft);margin-bottom:80px}
+.post{padding:32px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
 @media(max-width:720px){.post{grid-template-columns:1fr}}
-.post-h{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
-.post-d{font-family:var(--font-m);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.post-t{font-family:var(--font-d);font-size:clamp(1.15rem,2.2vw,1.45rem);font-weight:600;
-  letter-spacing:-.015em;line-height:1.3;margin-bottom:.6rem}
-.post-b{font-size:.92rem;color:var(--muted);line-height:1.72;max-width:66ch}
-.post-x{font-family:var(--font-m);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--lav);border:1px solid var(--line);padding:.55rem .8rem;border-radius:4px;
-  align-self:center;white-space:nowrap;transition:all .24s var(--ease)}
-.post-x:hover{background:var(--violet);color:#12061F;border-color:var(--violet)}
-.empty{padding:3rem 1rem;text-align:center;font-family:var(--font-m);font-size:.85rem;color:var(--faint)}
-footer{border-top:1px solid var(--line-soft);padding-block:2.4rem 3rem;position:relative;z-index:1}
-.f-t{font-family:var(--font-m);font-size:.7rem;color:var(--faint);line-height:2}
-.f-t b{color:var(--ink-2);font-weight:500}
-.f-t a{color:var(--lav)}
-@media(prefers-reduced-motion:reduce){*{transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.post-h{margin-bottom:10px}
+.post-d{font-family:var(--font-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.post-t{font-family:var(--font-d);font-size:21px;font-weight:500;letter-spacing:-.01em;line-height:1.35;margin-bottom:10px;color:var(--white)}
+.post-b{font-size:15px;color:var(--muted);line-height:1.75;max-width:64ch}
+.post-x{font-family:var(--font-d);font-size:14px;font-weight:500;color:var(--violet);align-self:center;white-space:nowrap;transition:color .2s ease}
+.post-x:hover{color:var(--lav)}
+.empty{padding:48px 16px;text-align:center;font-family:var(--font-m);font-size:13px;color:var(--faint)}
+footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
+.f-t{font-family:var(--font-m);font-size:12px;color:var(--faint);line-height:2}
+.f-t b{color:var(--ink-2);font-weight:400}
+.f-t a{color:var(--violet)}
+.f-t a:hover{color:var(--lav)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+.head>*{animation:rise 600ms var(--ease-out) backwards}
+.head>*:nth-child(2){animation-delay:80ms}.head>*:nth-child(3){animation-delay:160ms}
+.posts>.post{animation:rise 500ms var(--ease-out) backwards}
+.posts>.post:nth-of-type(1){animation-delay:240ms}.posts>.post:nth-of-type(2){animation-delay:310ms}.posts>.post:nth-of-type(3){animation-delay:380ms}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -103,6 +85,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.4rem 3rem;position:
 </div>
 
 <main>
+  <div class="head-bg">
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Field Notes</div>
@@ -112,7 +95,10 @@ footer{border-top:1px solid var(--line-soft);padding-block:2.4rem 3rem;position:
         they land. From a bug bounty hunter who moved from breaking websites to breaking agents.
       </p>
     </div>
+  </div>
+  </div>
 
+  <div class="wrap">
     <div class="posts">
       <!-- posts render from posts.json at build time -->
     <article class="post">

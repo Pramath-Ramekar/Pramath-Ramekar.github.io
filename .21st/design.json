@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "project": {
+    "name": "Portfolio-web",
+    "productType": "personal portfolio",
+    "stack": [
+      "static HTML",
+      "vanilla CSS",
+      "vanilla JS",
+      "Vercel"
+    ]
+  },
+  "sources": {
+    "tokens": [],
+    "components": [],
+    "assets": [
+      "assets"
+    ],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "dark",
+    "colors": {
+      "bg": "#0A0710",
+      "surface": "#120C1F",
+      "line": "#241B38",
+      "line-soft": "#1B1430",
+      "white": "#FFFFFF",
+      "ink": "#EDE7F6",
+      "ink-2": "#B3A8C7",
+      "muted": "#8A7EA0",
+      "faint": "#5D5375",
+      "violet": "#A855F7",
+      "violet-deep": "#7C3AED",
+      "lav": "#D8B4FE"
+    },
+    "typography": {
+      "display": "Space Grotesk 500/600/700",
+      "body": "Inter 400/500, 16px/1.7",
+      "mono": "JetBrains Mono 400"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "reveal": "fade-up 16px, 500ms cubic-bezier(.16,1,.3,1), 70ms stagger"
+    },
+    "density": "airy"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "preserve every word of existing content",
+      "no new dependencies; Google Fonts only",
+      "no em dashes",
+      "respect prefers-reduced-motion"
+    ],
+    "avoid": [
+      "decorative gradients, glows, grids, glass",
+      "boxed card grids",
+      "gimmick motion (radar, scramble, cursor spotlight)"
+    ]
+  },
+  "decisions": [
+    {
+      "date": "2026-10-03",
+      "decision": "Minimalist direction on the original purple + white palette",
+      "detail": "Dark #0A0710 background, #A855F7 accent, white type, hairline dividers, quiet fade-up motion only. Replaces the cyan/violet redesign."
+    }
+  ],
+  "evidence": [],
+  "generatedAt": "2026-10-03T10:41:29.156Z"
+}
