@@ -1,0 +1,38 @@
+{
+  "_comment": "Add one entry per LinkedIn post. date = YYYY-MM-DD. url = the post's permalink. Paste the post text into 'excerpt'. The blog section on the site reads this file and renders the newest first.",
+  "posts": [
+    {
+      "title": "Accepted is not applied: when a security parameter silently does nothing",
+      "date": "2026-09-20",
+      "url": "https://www.linkedin.com/in/pramath-ramekar/",
+      "tags": [
+        "CVE",
+        "Config",
+        "Silent Failure"
+      ],
+      "excerpt": "Silent inaction is worse than absence, because the caller believes the work is done. A finding that is accepted but never verified is an assumption wearing a ticket number."
+    },
+    {
+      "title": "Unreachable is not a control: when authentication becomes decorative",
+      "date": "2026-09-19",
+      "url": "https://www.linkedin.com/in/pramath-ramekar/",
+      "tags": [
+        "Agentic AI",
+        "AuthN",
+        "LLM02"
+      ],
+      "excerpt": "An agent memory layer accepted any JWT with its signature unchecked. The remedy was to make the endpoint unreachable — but unreachable is a circumstance, not a control."
+    },
+    {
+      "title": "Read-only is not inert: how a sandbox handed over the host's credentials",
+      "date": "2026-09-18",
+      "url": "https://www.linkedin.com/in/pramath-ramekar/",
+      "tags": [
+        "Sandbox",
+        "Container Escape",
+        "Supply Chain"
+      ],
+      "excerpt": "A read-only proxy forwarded method calls, so sandboxed code subscribed to a host event and received live credentials. Containment is a channel problem, not a permissions problem."
+    }
+  ]
+}
