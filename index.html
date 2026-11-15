@@ -290,6 +290,26 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
 .f-badge{font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
 .f-badge i{width:6px;height:6px;border-radius:50%;background:var(--violet);font-style:normal}
 
+/* ---------- coverage KPI tiles ---------- */
+.cov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:40px}
+.cov-tile{background:var(--surface);padding:36px 20px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:background .2s ease}
+.cov-tile:hover{background:var(--line-soft)}
+.cgw{position:relative;width:100px;height:100px;margin-bottom:16px;flex:none}
+.cgsvg{width:100px;height:100px}
+.cg-track{fill:none;stroke:var(--line);stroke-width:7}
+.cg-fill{fill:none;stroke:var(--violet);stroke-width:7;stroke-linecap:round;transform-origin:50px 50px;transform:rotate(-90deg);stroke-dasharray:0 276.460;transition:stroke-dasharray 1.5s cubic-bezier(.16,1,.3,1)}
+.cg-fill:not(.pend){filter:drop-shadow(0 0 8px rgba(168,85,247,.30))}
+.cg-fill.pend{stroke:var(--line);filter:none}
+.cgc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.cgc-n{font-family:var(--font-m);font-size:22px;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
+.cgc-d{font-family:var(--font-m);font-size:11px;color:var(--faint);margin-top:4px}
+.cgc-p{font-family:var(--font-m);font-size:10px;color:var(--violet);letter-spacing:.08em;margin-top:4px}
+.cov-nm{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--white);letter-spacing:-.01em;line-height:1.3;margin-bottom:4px}
+.cov-fw{font-family:var(--font-m);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+.cov-det{font-family:var(--font-m);font-size:9.5px;color:var(--muted);letter-spacing:.04em;line-height:1.9;margin-top:12px;padding-top:10px;border-top:1px solid var(--line-soft);width:100%}
+@media(max-width:767px){.cov-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.cov-grid{grid-template-columns:1fr}}
+
 .caret{display:inline-block;width:3px;height:.85em;background:var(--violet);margin-left:.05em;vertical-align:baseline;animation:blink 1.1s steps(2) infinite}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 
@@ -393,6 +413,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
       <a href="#blog" data-spy="blog">Blog</a>
       <a href="#journey" data-spy="journey">Journey</a>
       <a href="#certs" data-spy="certs">Credentials</a>
+      <a href="#coverage" data-spy="coverage">Coverage</a>
       <a href="#contact" data-spy="contact">Contact</a>
     </div>
   </div>
@@ -892,11 +913,30 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
   </div>
 </section>
 
-<!-- ============ 07 CONTACT ============ -->
-<section class="sec" id="contact">
+<!-- ============ 07 COVERAGE ============ -->
+<section class="sec" id="coverage">
   <div class="wrap">
     <div class="sh rv">
       <span class="sh-n">[07]</span>
+      <h2 class="sh-t">Coverage</h2>
+      <span class="sh-s">By finding, not study</span>
+    </div>
+
+    <p class="metric-note rv">
+      <strong>Coverage</strong> means categories where I have hands-on finding experience:
+      found, reproduced and reported, not studied. Pending tiles represent frameworks
+      being actively calibrated.
+    </p>
+
+    <div class="cov-grid" id="covGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 08 CONTACT ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="sh-n">[08]</span>
       <h2 class="sh-t">Direct Channels</h2>
       <span class="sh-s">No forms, just email</span>
     </div>
@@ -1130,7 +1170,53 @@ $$('.proj.open [data-toggle]').forEach(function(h){h.setAttribute('aria-expanded
   });
 })();
 
-/* ---------- 8. command palette ---------- */
+/* ---------- 8. coverage gauges ---------- */
+(function covG(){
+  var G=document.getElementById('covGrid'); if(!G) return;
+  var C=276.460;
+  var DATA=[
+    {name:'OWASP Web Security',sub:'Web Application Top 10',num:7,den:10,pct:70,det:'7 of 10 categories · hands-on findings on HackerOne & Bugcrowd'},
+    {name:'OWASP API Security',sub:'API Security Top 10',num:4,den:10,pct:40,det:'4 of 10 categories · reproduced across live API targets'},
+    {name:'OWASP LLM Security',sub:'LLM Applications Top 10',num:4,den:10,pct:40,det:'LLM01 · LLM06 · LLM07 · LLM10'},
+    {name:'OWASP Agentic Security',sub:'Agentic Applications Top 10',num:null,den:10,pct:null,pend:1,det:null},
+    {name:'MITRE ATLAS',sub:'AI Adversarial Threat Landscape',num:null,den:null,pct:null,pend:1,det:null},
+    {name:'NIST AI RMF',sub:'AI Risk Management Framework',num:null,den:4,pct:null,pend:1,det:'GOVERN · MAP · MEASURE · MANAGE'}
+  ];
+  G.innerHTML=DATA.map(function(k){
+    var arc=k.pct?(k.pct/100)*C:0;
+    var p=!!k.pend;
+    return '<div class="cov-tile">'+
+      '<div class="cgw">'+
+        '<svg class="cgsvg" viewBox="0 0 100 100">'+
+          '<circle class="cg-track" cx="50" cy="50" r="44"/>'+
+          '<circle class="cg-fill'+(p?' pend':'')+'" cx="50" cy="50" r="44" data-arc="'+arc.toFixed(3)+'" stroke-dasharray="0 '+C.toFixed(3)+'"/>'+
+        '</svg>'+
+        '<div class="cgc">'+
+          '<span class="cgc-n"'+(p?' style="color:var(--faint)"':'')+'>'+( p?'&mdash;':k.num)+'</span>'+
+          (k.den?'<span class="cgc-d">/ '+k.den+'</span>':'<span class="cgc-d">&mdash;</span>')+
+          (p?'<span class="cgc-p" style="color:var(--faint)">Calibrating</span>':'<span class="cgc-p">'+k.pct+'%</span>')+
+        '</div>'+
+      '</div>'+
+      '<div class="cov-nm">'+k.name+'</div>'+
+      '<div class="cov-fw">'+k.sub+'</div>'+
+      (k.det?'<div class="cov-det">'+k.det+'</div>':'')+
+    '</div>';
+  }).join('');
+  var rmq=window.matchMedia('(prefers-reduced-motion:reduce)');
+  function fire(){
+    $$('.cg-fill[data-arc]').forEach(function(el){
+      var arc=parseFloat(el.getAttribute('data-arc'));
+      if(rmq.matches){el.style.strokeDasharray=arc+' '+C.toFixed(3);}
+      else{setTimeout(function(){el.style.strokeDasharray=arc+' '+C.toFixed(3);},120);}
+    });
+  }
+  if('IntersectionObserver' in window&&!rmq.matches){
+    var io2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){fire();io2.disconnect();}});},{threshold:.15});
+    io2.observe(G);
+  }else{fire();}
+})();
+
+/* ---------- 9. command palette ---------- */
 var CMDS=[
   {g:'Jump to',i:'◈',t:'Dossier',k:'01',to:'#dossier'},
   {g:'Jump to',i:'◈',t:'Capabilities',k:'02',to:'#capabilities'},
@@ -1138,7 +1224,8 @@ var CMDS=[
   {g:'Jump to',i:'◈',t:'Blog',k:'04',to:'#blog'},
   {g:'Jump to',i:'◈',t:'Journey',k:'05',to:'#journey'},
   {g:'Jump to',i:'◈',t:'Credentials',k:'06',to:'#certs'},
-  {g:'Jump to',i:'◈',t:'Direct Channels',k:'07',to:'#contact'},
+  {g:'Jump to',i:'◈',t:'Coverage',k:'07',to:'#coverage'},
+  {g:'Jump to',i:'◈',t:'Direct Channels',k:'08',to:'#contact'},
   {g:'Actions',i:'✉',t:'Email me',k:'@',to:'mailto:pramathramekar@gmail.com',ext:true},
   {g:'Actions',i:'↓',t:'Download résumé (PDF)',k:'CV',to:'assets/resume.pdf',dl:true},
   {g:'Actions',i:'⎇',t:'Open GitHub',k:'GH',to:'https://github.com/Pramath-Ramekar',ext:true},
