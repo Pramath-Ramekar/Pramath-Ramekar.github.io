@@ -290,25 +290,11 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
 .f-badge{font-family:var(--font-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
 .f-badge i{width:6px;height:6px;border-radius:50%;background:var(--violet);font-style:normal}
 
-/* ---------- coverage KPI tiles ---------- */
-.cov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:40px}
-.cov-tile{background:var(--surface);padding:36px 20px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:background .2s ease}
-.cov-tile:hover{background:var(--line-soft)}
-.cgw{position:relative;width:100px;height:100px;margin-bottom:16px;flex:none}
-.cgsvg{width:100px;height:100px}
-.cg-track{fill:none;stroke:var(--line);stroke-width:7}
-.cg-fill{fill:none;stroke:var(--violet);stroke-width:7;stroke-linecap:round;transform-origin:50px 50px;transform:rotate(-90deg);stroke-dasharray:0 276.460;transition:stroke-dasharray 1.5s cubic-bezier(.16,1,.3,1)}
-.cg-fill:not(.pend){filter:drop-shadow(0 0 8px rgba(168,85,247,.30))}
-.cg-fill.pend{stroke:var(--line);filter:none}
-.cgc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
-.cgc-n{font-family:var(--font-m);font-size:22px;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
-.cgc-d{font-family:var(--font-m);font-size:11px;color:var(--faint);margin-top:4px}
-.cgc-p{font-family:var(--font-m);font-size:10px;color:var(--violet);letter-spacing:.08em;margin-top:4px}
-.cov-nm{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--white);letter-spacing:-.01em;line-height:1.3;margin-bottom:4px}
-.cov-fw{font-family:var(--font-m);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
-.cov-det{font-family:var(--font-m);font-size:9.5px;color:var(--muted);letter-spacing:.04em;line-height:1.9;margin-top:12px;padding-top:10px;border-top:1px solid var(--line-soft);width:100%}
-@media(max-width:767px){.cov-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:420px){.cov-grid{grid-template-columns:1fr}}
+/* ---------- framework list ---------- */
+.fw-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:clamp(32px,5vw,56px) clamp(20px,3vw,36px);margin-top:40px}
+.fw-cat-t{font-family:var(--font-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.fw-items{list-style:none;display:flex;flex-direction:column;gap:6px}
+.fw-items li{font-size:13px;color:var(--ink-2);line-height:1.4}
 
 .caret{display:inline-block;width:3px;height:.85em;background:var(--violet);margin-left:.05em;vertical-align:baseline;animation:blink 1.1s steps(2) infinite}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
@@ -466,29 +452,6 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
         <a class="btn btn-g" href="mailto:pramathramekar@gmail.com">Get in touch</a>
       </div>
 
-      <noscript><style>.stat-n .pfx{display:none}</style></noscript>
-      <div class="stats stg">
-        <div class="stat">
-          <div class="stat-n"><span data-count="3000">3,000</span><span class="pfx">+</span></div>
-          <div class="stat-l">Hours of bug<br>bounty research</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n"><span data-count="7">7</span><span class="pfx">/10</span></div>
-          <div class="stat-l">OWASP Web<br>Top 10 coverage</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n"><span data-count="4">4</span><span class="pfx">/10</span></div>
-          <div class="stat-l">OWASP LLM<br>Top 10 coverage</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n"><span data-count="4">4</span><span class="pfx">/10</span></div>
-          <div class="stat-l">OWASP API<br>Top 10 coverage</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n"><span data-count="6">6</span></div>
-          <div class="stat-l">Certifications<br>earned or active</div>
-        </div>
-      </div>
     </div>
   </div>
   </div>
@@ -913,22 +876,140 @@ footer{border-top:1px solid var(--line-soft);padding-block:40px 48px}
   </div>
 </section>
 
-<!-- ============ 07 COVERAGE ============ -->
+<!-- ============ 07 FRAMEWORKS ============ -->
 <section class="sec" id="coverage">
   <div class="wrap">
     <div class="sh rv">
       <span class="sh-n">[07]</span>
-      <h2 class="sh-t">Coverage</h2>
-      <span class="sh-s">By finding, not study</span>
+      <h2 class="sh-t">Frameworks</h2>
+      <span class="sh-s">Standards I work from</span>
     </div>
 
-    <p class="metric-note rv">
-      <strong>Coverage</strong> means categories where I have hands-on finding experience:
-      found, reproduced and reported, not studied. Pending tiles represent frameworks
-      being actively calibrated.
-    </p>
-
-    <div class="cov-grid" id="covGrid"></div>
+    <div class="fw-cats rv">
+      <div class="fw-cat">
+        <div class="fw-cat-t">OWASP · Application Security</div>
+        <ul class="fw-items">
+          <li>Web Application Top 10</li>
+          <li>API Security Top 10</li>
+          <li>Mobile Application Security Top 10</li>
+          <li>ASVS</li>
+          <li>MASVS</li>
+          <li>SAMM</li>
+          <li>Non-Human Identities Top 10</li>
+          <li>CI/CD Security Top 10</li>
+          <li>Kubernetes Top 10</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">OWASP · AI Security</div>
+        <ul class="fw-items">
+          <li>LLM Applications Top 10</li>
+          <li>Agentic Applications Top 10</li>
+          <li>MCP Top 10</li>
+          <li>Machine Learning Security Top 10</li>
+          <li>Agentic Skills Top 10</li>
+          <li>AI Security Verification Standard</li>
+          <li>Neocloud &amp; AI Data Center Security</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">OWASP · AI Resources</div>
+        <ul class="fw-items">
+          <li>AI Exchange</li>
+          <li>Agent Control Standard</li>
+          <li>GenAI Red Teaming Guide</li>
+          <li>GenAI Data Security</li>
+          <li>AI Bill of Materials</li>
+          <li>AI Security Governance</li>
+          <li>LLM Governance Checklist</li>
+          <li>AI Threat Intelligence</li>
+          <li>GenAI Incident Response Guide</li>
+          <li>Deepfake Security Guide</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">MITRE</div>
+        <ul class="fw-items">
+          <li>ATT&amp;CK</li>
+          <li>ATLAS</li>
+          <li>D3FEND</li>
+          <li>CAPEC</li>
+          <li>CWE</li>
+          <li>CWE Top 25</li>
+          <li>CAR</li>
+          <li>Engage</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">NIST · AI</div>
+        <ul class="fw-items">
+          <li>AI RMF</li>
+          <li>Generative AI Profile (AI 600-1)</li>
+          <li>Adversarial ML Taxonomy (AI 100-2)</li>
+          <li>AI RMF Playbook</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">NIST · Cybersecurity</div>
+        <ul class="fw-items">
+          <li>CSF 2.0</li>
+          <li>SP 800-53</li>
+          <li>SP 800-218 SSDF</li>
+          <li>SP 800-218A GenAI SSDF</li>
+          <li>SP 800-61 Incident Response</li>
+          <li>SP 800-207 Zero Trust</li>
+          <li>SP 800-161 Supply Chain</li>
+          <li>SP 800-190 Containers</li>
+          <li>SP 800-82 OT Security</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">CSA</div>
+        <ul class="fw-items">
+          <li>Cloud Controls Matrix</li>
+          <li>AI Controls Matrix</li>
+          <li>STAR</li>
+          <li>MAESTRO</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">Google · Microsoft</div>
+        <ul class="fw-items">
+          <li>Google SAIF</li>
+          <li>Google SAIF Risk Framework</li>
+          <li>Google Cloud Security Foundations</li>
+          <li>Microsoft Responsible AI Standard</li>
+          <li>Microsoft SDL</li>
+          <li>Microsoft MCSB</li>
+          <li>Microsoft AI Red Teaming</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">Cloud &amp; Infrastructure</div>
+        <ul class="fw-items">
+          <li>CIS Critical Security Controls</li>
+          <li>CIS Benchmarks</li>
+          <li>CIS Kubernetes Benchmark</li>
+          <li>CIS Docker Benchmark</li>
+          <li>AWS Foundational Security Best Practices</li>
+          <li>AWS Well-Architected Security</li>
+          <li>Azure Security Benchmark</li>
+          <li>Kubernetes Security Checklist</li>
+        </ul>
+      </div>
+      <div class="fw-cat">
+        <div class="fw-cat-t">Software Supply Chain</div>
+        <ul class="fw-items">
+          <li>SLSA</li>
+          <li>OpenSSF Scorecard</li>
+          <li>OpenSSF Best Practices Badge</li>
+          <li>SPDX</li>
+          <li>CycloneDX</li>
+          <li>NIST SSDF</li>
+          <li>NIST Supply Chain Security</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1170,53 +1251,7 @@ $$('.proj.open [data-toggle]').forEach(function(h){h.setAttribute('aria-expanded
   });
 })();
 
-/* ---------- 8. coverage gauges ---------- */
-(function covG(){
-  var G=document.getElementById('covGrid'); if(!G) return;
-  var C=276.460;
-  var DATA=[
-    {name:'OWASP Web Security',sub:'Web Application Top 10',num:7,den:10,pct:70,det:'7 of 10 categories · hands-on findings on HackerOne & Bugcrowd'},
-    {name:'OWASP API Security',sub:'API Security Top 10',num:4,den:10,pct:40,det:'4 of 10 categories · reproduced across live API targets'},
-    {name:'OWASP LLM Security',sub:'LLM Applications Top 10',num:4,den:10,pct:40,det:'LLM01 · LLM06 · LLM07 · LLM10'},
-    {name:'OWASP Agentic Security',sub:'Agentic Applications Top 10',num:null,den:10,pct:null,pend:1,det:null},
-    {name:'MITRE ATLAS',sub:'AI Adversarial Threat Landscape',num:null,den:null,pct:null,pend:1,det:null},
-    {name:'NIST AI RMF',sub:'AI Risk Management Framework',num:null,den:4,pct:null,pend:1,det:'GOVERN · MAP · MEASURE · MANAGE'}
-  ];
-  G.innerHTML=DATA.map(function(k){
-    var arc=k.pct?(k.pct/100)*C:0;
-    var p=!!k.pend;
-    return '<div class="cov-tile">'+
-      '<div class="cgw">'+
-        '<svg class="cgsvg" viewBox="0 0 100 100">'+
-          '<circle class="cg-track" cx="50" cy="50" r="44"/>'+
-          '<circle class="cg-fill'+(p?' pend':'')+'" cx="50" cy="50" r="44" data-arc="'+arc.toFixed(3)+'" stroke-dasharray="0 '+C.toFixed(3)+'"/>'+
-        '</svg>'+
-        '<div class="cgc">'+
-          '<span class="cgc-n"'+(p?' style="color:var(--faint)"':'')+'>'+( p?'&mdash;':k.num)+'</span>'+
-          (k.den?'<span class="cgc-d">/ '+k.den+'</span>':'<span class="cgc-d">&mdash;</span>')+
-          (p?'<span class="cgc-p" style="color:var(--faint)">Calibrating</span>':'<span class="cgc-p">'+k.pct+'%</span>')+
-        '</div>'+
-      '</div>'+
-      '<div class="cov-nm">'+k.name+'</div>'+
-      '<div class="cov-fw">'+k.sub+'</div>'+
-      (k.det?'<div class="cov-det">'+k.det+'</div>':'')+
-    '</div>';
-  }).join('');
-  var rmq=window.matchMedia('(prefers-reduced-motion:reduce)');
-  function fire(){
-    $$('.cg-fill[data-arc]').forEach(function(el){
-      var arc=parseFloat(el.getAttribute('data-arc'));
-      if(rmq.matches){el.style.strokeDasharray=arc+' '+C.toFixed(3);}
-      else{setTimeout(function(){el.style.strokeDasharray=arc+' '+C.toFixed(3);},120);}
-    });
-  }
-  if('IntersectionObserver' in window&&!rmq.matches){
-    var io2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){fire();io2.disconnect();}});},{threshold:.15});
-    io2.observe(G);
-  }else{fire();}
-})();
-
-/* ---------- 9. command palette ---------- */
+/* ---------- 8. command palette ---------- */
 var CMDS=[
   {g:'Jump to',i:'◈',t:'Dossier',k:'01',to:'#dossier'},
   {g:'Jump to',i:'◈',t:'Capabilities',k:'02',to:'#capabilities'},
@@ -1224,7 +1259,7 @@ var CMDS=[
   {g:'Jump to',i:'◈',t:'Blog',k:'04',to:'#blog'},
   {g:'Jump to',i:'◈',t:'Journey',k:'05',to:'#journey'},
   {g:'Jump to',i:'◈',t:'Credentials',k:'06',to:'#certs'},
-  {g:'Jump to',i:'◈',t:'Coverage',k:'07',to:'#coverage'},
+  {g:'Jump to',i:'◈',t:'Frameworks',k:'07',to:'#coverage'},
   {g:'Jump to',i:'◈',t:'Direct Channels',k:'08',to:'#contact'},
   {g:'Actions',i:'✉',t:'Email me',k:'@',to:'mailto:pramathramekar@gmail.com',ext:true},
   {g:'Actions',i:'↓',t:'Download résumé (PDF)',k:'CV',to:'assets/resume.pdf',dl:true},
